@@ -3,7 +3,7 @@ dist: bionic
 
 language: node_js
 node_js:
-  - "12"
+  - 12
 
 addons:
   apt:
@@ -15,6 +15,12 @@ addons:
 cache:
   directories:
     - ./node_modules
+
+install:
+  - echo "Installing"
+
+script:
+  - echo "Testing"
 
 deploy:
   provider: pages
