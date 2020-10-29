@@ -248,3 +248,21 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+mat-tab-group div.mat-tab-label {
+	height: 37px;
+	font-size: 13.5px;
+	font-weight: normal;
+	color: var(--primary-darker-color);
+	opacity: 1;
+
+}
+mat-tab-group mat-tab-header {
+		margin-right: 200px;
+}
+
+span.katex {
+	font-weight: 700;
+}
+@import '~katex/dist/katex.css';

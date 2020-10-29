@@ -1,0 +1,203 @@
+{
+	"tabs": [
+		{
+			"name": "Binary Operators",
+			"buttons": [
+				{
+					"code": "\\amalg"
+				},
+				{
+					"code": "\\cup"
+				},
+				{
+					"code": "\\oplus"
+				},
+				{
+					"code": "\\times"
+				},
+				{
+					"code": "\\dagger "
+				},
+				{
+					"code": "\\oslash "
+				},
+				{
+					"code": "\\triangleleft"
+				},
+				{
+					"code": "\\bigcirc"
+				},
+				{
+					"code": "\\ddagger"
+				},
+				{
+					"code": "\\otimes"
+				},
+				{
+					"code": "\\triangleright"
+				},
+				{
+					"code": "\\bigtriangledown"
+				},
+				{
+					"code": "\\diamond"
+				},
+				{
+					"code": "\\pm"
+				},
+				{
+					"code": "\\unlhd"
+				},
+				{
+					"code": "\\bigtriangleup"
+				},
+				{
+					"code": "\\div"
+				},
+				{
+					"code": "\\rhd"
+				},
+				{
+					"code": "\\unrhd"
+				},
+				{
+					"code": "\\bullet"
+				},
+				{
+					"code": "\\lhd"
+				},
+				{
+					"code": "\\setminus"
+				},
+				{
+					"code": "\\uplus"
+				},
+				{
+					"code": "\\cap"
+				},
+				{
+					"code": "\\mp"
+				},
+				{
+					"code": "\\sqcap"
+				},
+				{
+					"code": "\\vee"
+				},
+				{
+					"code": "\\cdot"
+				},
+				{
+					"code": "\\odot"
+				},
+				{
+					"code": "\\sqcup"
+				},
+				{
+					"code": "\\wedge"
+				},
+				{
+					"code": "\\circ"
+				},
+				{
+					"code": "\\ominus"
+				},
+				{
+					"code": "\\star"
+				},
+				{
+					"code": "\\wr"
+				}
+			]
+		},
+		{
+			"name": "Variable Sized Math Operators",
+			"buttons": [
+				{
+					"code": "\\bigcap"
+				},
+				{
+					"code": "\\bigotimes"
+				},
+				{
+					"code": "\\bigwedge"
+				},
+				{
+					"code": "\\prod"
+				},
+				{
+					"code": "\\bigcup"
+				},
+				{
+					"code": "\\bigsqcup"
+				},
+				{
+					"code": "\\coprod"
+				},
+				{
+					"code": "\\sum"
+				},
+				{
+					"code": "\\bigodot"
+				},
+				{
+					"code": "\\biguplus"
+				},
+				{
+					"code": "\\int"
+				},
+				{
+					"code": "\\bigoplus"
+				},
+				{
+					"code": "\\bigvee"
+				},
+				{
+					"code": "\\oint"
+				}
+			]
+		},
+		{
+			"name": "Binary Relations"
+		},
+		{
+			"name": "Subset and Superset Relations"
+		},
+		{
+			"name": "Inequalities"
+		},
+		{
+			"name": "Arrows"
+		},
+		{
+			"name": "Harpoons"
+		},
+		{
+			"name": "Extension Characters"
+		},
+		{
+			"name": "Log-like Symbols"
+		},
+		{
+			"name": "Greek Letters"
+		},
+		{
+			"name": "Letter-like Symbols"
+		},
+		{
+			"name": "Delimiters"
+		},
+		{
+			"name": "Accents"
+		},
+		{
+			"name": "Dots"
+		},
+		{
+			"name": "Alphabets"
+		},
+		{
+			"name": "Other"
+		}
+	]
+}

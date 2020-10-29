@@ -23,7 +23,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // import {MatGridListModule} from '@angular/material/grid-list';
 // import {MatListModule} from '@angular/material/list';
 // import {MatStepperModule} from '@angular/material/stepper';
-// import {MatTabsModule} from '@angular/material/tabs';
+import {MatTabsModule} from '@angular/material/tabs';
 // import {MatTreeModule} from '@angular/material/tree';
 
 // // *************** BUTTONS & INDICATORS ***************
@@ -31,10 +31,10 @@ import {MatButtonModule} from '@angular/material/button';
 // import {MatButtonToggleModule} from '@angular/material/button-toggle';
 // import {MatBadgeModule} from '@angular/material/badge';
 // import {MatChipsModule} from '@angular/material/chips';
-// import {MatIconModule} from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
 // import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import {MatProgressBarModule} from '@angular/material/progress-bar';
-// import {MatRippleModule} from '@angular/material/core';
+import {MatRippleModule} from '@angular/material/core';
 
 // // *************** POPUPS & MODALS ***************
 // import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -68,16 +68,16 @@ const AllMaterialModules = [
   // MatGridListModule,
   // MatListModule,
   // MatStepperModule,
-  // MatTabsModule,
+  MatTabsModule,
   // MatTreeModule,
   MatButtonModule,
   // MatButtonToggleModule,
   // MatBadgeModule,
   // MatChipsModule,
-  // MatIconModule,
+  MatIconModule,
   // MatProgressSpinnerModule,
   // MatProgressBarModule,
-  // MatRippleModule,
+  MatRippleModule,
   // MatBottomSheetModule,
   // MatDialogModule,
   // MatSnackBarModule,

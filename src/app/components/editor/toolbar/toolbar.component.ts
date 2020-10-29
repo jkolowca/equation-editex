@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import ToolbarContent from './toolbar.json';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  toolbar: any;
 
-  constructor() { }
+  constructor() { this.toolbar = ToolbarContent; }
 
   ngOnInit(): void {
   }

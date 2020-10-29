@@ -14,6 +14,7 @@ import { PreviewWindowComponent } from './components/editor/preview-window/previ
 import { CodeWindowComponent } from './components/editor/code-window/code-window.component';
 import { SearchBoxComponent } from './components/editor/toolbar/search-box/search-box.component';
 import { EquationService } from './services/equation.service';
+import { KatexModule } from 'ng-katex';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EquationService } from './services/equation.service';
     FormsModule,
     ReactiveFormsModule,
     ContenteditableValueAccessorModule,
+    KatexModule,
   ],
   providers: [EquationService],
   bootstrap: [AppComponent]

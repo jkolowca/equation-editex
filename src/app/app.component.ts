@@ -1,5 +1,5 @@
-import { Component, OnDestroy } from '@angular/core';
-import { FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EquationService } from './services/equation.service';
 

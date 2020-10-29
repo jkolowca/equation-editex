@@ -1,3 +1,10 @@
 <div class="container">
-	<p>toolbar works!</p>
+	<app-search-box></app-search-box>
+	<mat-tab-group>
+		<mat-tab *ngFor="let tab of toolbar.tabs" [label]="tab.name">
+			<div class="button-container">
+				<div class="button" *ngFor="let button of tab.buttons" matRipple matRippleColor="rgba(217, 42, 42, 0.13)"><ng-katex [equation]="button.code"></ng-katex></div>
+			</div>
+		</mat-tab>
+	</mat-tab-group>
 </div>

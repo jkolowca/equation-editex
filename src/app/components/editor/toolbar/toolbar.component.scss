@@ -1,4 +1,38 @@
 .container {
-	margin: 0 50px 0 50px;
-	padding: 20px;
+	margin: 10px 50px 0 50px;
+	height: 190px;
+	position: relative;
+}
+
+mat-tab-group {
+	max-height: 175px;
+}
+
+.button-container {
+	padding: 5px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-items: start;
+}
+
+.button {
+	margin: 2.5px;
+	background-color: white;
+	border-radius: 4px;
+	border: 1px solid rgb(119 119 119 / 10%);
+	padding: 7px 10px;
+	cursor: pointer;
+}
+
+app-search-box {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 35px;
+	z-index: -1;
+}
+
+ng-katex {
+	font-size: 10px;
 }
