@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,8 +13,11 @@ import { EditorWindowComponent } from './components/editor/editor-window/editor-
 import { PreviewWindowComponent } from './components/editor/preview-window/preview-window.component';
 import { CodeWindowComponent } from './components/editor/code-window/code-window.component';
 import { SearchBoxComponent } from './components/editor/toolbar/search-box/search-box.component';
-import { EquationService } from './services/equation.service';
 import { KatexModule } from 'ng-katex';
+import { EquationComponent } from './components/editor/editor-window/equation/equation.component';
+import { CommonModule } from '@angular/common';
+import { DocumentBarComponent } from './components/document-bar/document-bar.component';
+import { EquationService } from './services/equation.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { KatexModule } from 'ng-katex';
     EditorWindowComponent,
     PreviewWindowComponent,
     CodeWindowComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    EquationComponent,
+    DocumentBarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { KatexModule } from 'ng-katex';
     ReactiveFormsModule,
     ContenteditableValueAccessorModule,
     KatexModule,
+    CommonModule
   ],
   providers: [EquationService],
   bootstrap: [AppComponent]

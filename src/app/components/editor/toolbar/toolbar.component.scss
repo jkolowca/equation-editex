@@ -22,6 +22,7 @@ mat-tab-group {
 	border: 1px solid rgb(119 119 119 / 10%);
 	padding: 7px 10px;
 	cursor: pointer;
+	user-select: none;
 }
 
 app-search-box {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EquationService } from 'src/app/services/equation.service';
 
 @Component({
   selector: 'app-editor-window',
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editor-window.component.scss']
 })
 export class EditorWindowComponent implements OnInit {
-
-  constructor() { }
+  constructor(public equationService: EquationService){}
 
   ngOnInit(): void {
   }

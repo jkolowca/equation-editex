@@ -1,0 +1,14 @@
+<div class="equation-container">
+	<ng-container *ngFor="let component of equation">
+		<ng-container [ngSwitch]="component.type">
+			<div *ngSwitchCase="'input'" class="input" contenteditable>{{component.value}}</div>
+			<ng-katex *ngSwitchCase="'function'" [equation]="component.value"></ng-katex>
+			<app-equation *ngSwitchCase="'superscript'" class="superscript" [equation]='component.value'></app-equation>
+			<app-equation *ngSwitchCase="'subscript'" class="subscript" [equation]='component.value'></app-equation>
+			<div *ngSwitchCase="'subandsuperscript'" class="subandsuperscript">
+				<app-equation [equation]="component.value[0]"></app-equation>
+				<app-equation [equation]="component.value[1]"></app-equation>
+			</div>
+		</ng-container>
+	</ng-container>
+</div>

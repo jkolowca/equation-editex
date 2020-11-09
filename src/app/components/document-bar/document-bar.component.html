@@ -1,0 +1,13 @@
+<mat-toolbar class="document-bar" color="primary"><div class="content-block">
+	<ng-container *ngFor="let document of equationService.documentNames | async, index as i">
+		<div class="label" (click)="openEquation(i, $event)"  matRipple>
+			<div class="input" [class.active]="equationService.currentDocumentIndex === document.index" spellcheck="false" (dblclick)="editText($event)" (input)="updateName($event, document.index)" [routerLink]="['/editor', document.index]" contenteditable>{{document.name}}</div>
+		</div>
+	</ng-container>
+	<div class="label right" (click)="addNewEquation('New equation')" matRipple>
+		<div class="input">Add new</div>
+	</div>
+	<div class="label" (click)="addNewEquation('FileName')" matRipple>
+		<div class="input">Load from file</div>
+	</div>
+</div></mat-toolbar>
