@@ -1,7 +1,7 @@
 <mat-toolbar class="document-bar" color="primary"><div class="content-block">
-	<ng-container *ngFor="let document of equationService.documentNames | async, index as i">
-		<div class="label" (click)="openEquation(i, $event)"  matRipple>
-			<div class="input" [class.active]="equationService.currentDocumentIndex === document.index" spellcheck="false" (dblclick)="editText($event)" (input)="updateName($event, document.index)" [routerLink]="['/editor', document.index]" contenteditable>{{document.name}}</div>
+	<ng-container *ngFor="let form of documentsMenu.controls, index as i">
+		<div class="label" (click)="openEquation(i, $event)" [formGroup]="form"  matRipple>
+			<div class="input" formControlName="name" [class.active]="equationService.currentDocumentIndex === i" spellcheck="false" (dblclick)="editText($event)" [routerLink]="['/editor', i]" contenteditable></div>
 		</div>
 	</ng-container>
 	<div class="label right" (click)="addNewEquation('New equation')" matRipple>

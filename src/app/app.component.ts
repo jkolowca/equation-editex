@@ -6,7 +6,7 @@ import { EquationService } from './services/equation.service';
   template: `
     <mat-toolbar class="title-bar" color="primary">
       <div class="content-block">
-	      Equation Edi<ng-katex equation="\LaTeX"></ng-katex>
+	      Equation Edi<ng-katex equation="\\TeX"></ng-katex>
       </div>
     </mat-toolbar>
     <app-document-bar></app-document-bar>

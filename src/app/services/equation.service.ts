@@ -80,8 +80,9 @@ export class EquationService {
     localStorage.setItem('documents', JSON.stringify(this.documents));
   }
 
-  changeDocumentName(index: number, name: string): void{
-    this.documents.find(d => d.index === index).name = name;
+  changeDocumentNames(newNames: DocumentNames): void{
+    newNames.forEach(document => this.documents.find(d => d.index === document.index).name = document.name);
+    this.saveDocuments();
   }
 }
 

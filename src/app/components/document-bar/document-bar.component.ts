@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EquationService } from 'src/app/services/equation.service';
 
@@ -9,7 +9,16 @@ import { EquationService } from 'src/app/services/equation.service';
   styleUrls: ['./document-bar.component.scss']
 })
 export class DocumentBarComponent {
-  constructor(private fb: FormBuilder, private router: Router, public equationService: EquationService) {}
+  documentsMenu: FormArray;
+
+  constructor(private fb: FormBuilder, private router: Router, public equationService: EquationService) {
+   this.equationService.documentNames.subscribe(documentNames => {
+     this.documentsMenu = this.fb.array(documentNames.map(document => this.fb.group(document)));
+   });
+   this.documentsMenu.valueChanges.subscribe(changes => {
+    this.equationService.changeDocumentNames(changes);
+   });
+  }
 
   openEquation(index: number, event: MouseEvent): void {
     (event.target as any).blur();
@@ -24,10 +33,5 @@ export class DocumentBarComponent {
   addNewEquation(name: string, selector?: number): void {
     this.equationService.addEmptyDocument(name);
     this.router.navigate(['/editor', selector]);
-  }
-
-  updateName(event: Event, index: number): void {
-    console.log(event);
-    this.equationService.changeDocumentName(index, 'name');
   }
 }
