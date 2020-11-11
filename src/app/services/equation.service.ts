@@ -29,6 +29,10 @@ export type DocumentNames = Array<{name: string, index: number}>;
   providedIn: 'root'
 })
 export class EquationService {
+  currentLocation = {
+    path: undefined,
+    position: 0
+  };
   currentDocumentIndex: number;
   private documents: Document[];
   private _currentEquation = new BehaviorSubject<Equation>(undefined);
@@ -78,6 +82,13 @@ export class EquationService {
 
   saveDocuments(): void {
     localStorage.setItem('documents', JSON.stringify(this.documents));
+  }
+
+  addToEquation(equation: Equation): void {
+    let currentEquation = this.documents[this.currentDocumentIndex].equation;
+    if (this.currentLocation.path) { currentEquation = currentEquation[this.currentLocation.path] as any; }
+    currentEquation.splice(this.currentLocation.position, 0, ...equation);
+    this.saveDocuments();
   }
 
   changeDocumentNames(newNames: DocumentNames): void{
