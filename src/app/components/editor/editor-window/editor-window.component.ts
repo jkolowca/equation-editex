@@ -13,9 +13,9 @@ export class EditorWindowComponent implements OnInit {
     equationService.currentEquation.subscribe(e => {
       this.equationForm = this.fb.group({ array: this.fb.array([]) });
       this.createForm(this.equationForm.controls.array as FormArray, e);
+      this.equationForm.valueChanges.subscribe(value => this.equationService.updateEquation(value.array));
     });
 
-    this.equationForm.valueChanges.subscribe(value => this.equationService.updateEquation(value.array));
   }
 
   createForm(form: FormArray, equation: Equation): void {

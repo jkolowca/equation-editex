@@ -94,8 +94,8 @@ export class EquationService {
   }
 
   updateEquation(equation: Equation): void {
+    console.log(`save`);
     this.documents[this.currentDocumentIndex].equation = equation;
-    this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.saveDocuments();
   }
 
