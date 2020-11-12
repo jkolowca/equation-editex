@@ -23,7 +23,7 @@ export interface Document {
 }
 
 export type Equation = EqComponent[];
-export type DocumentNames = Array<{name: string, index: number}>;
+export type DocumentNames = Array<{ name: string, index: number }>;
 
 @Injectable({
   providedIn: 'root'
@@ -42,10 +42,25 @@ export class EquationService {
     return this._documentNames.asObservable();
   }
 
-  initialize(): void{
+  initialize(): void {
     const data = JSON.parse(localStorage.getItem('documents'));
     const currentDocument = JSON.parse(localStorage.getItem('currentDocument'));
     this.documents = data ? data : [];
+    this.documents = [
+      {
+        name: 'abba',
+        index: 0,
+        equation: [
+          {
+            value: '15',
+            type: EqComponentTypes.Input
+          },
+          {
+            value: [{ value: '2', type: EqComponentTypes.Input }],
+            type: EqComponentTypes.Superscript
+          }]
+      }];
+
     if (this.documents.length) {
       this.openDocument(currentDocument | 0);
       this.updateDocumentNames();
@@ -55,18 +70,18 @@ export class EquationService {
     }
   }
 
-  openDocument(index: number): void{
+  openDocument(index: number): void {
     this._currentEquation.next(this.documents[index].equation);
     this.currentDocumentIndex = index;
     localStorage.setItem('currentDocument', index.toString());
   }
 
   updateDocumentNames(): void {
-    this._documentNames.next(this.documents.map(d => ({index: d.index, name: d.name})));
+    this._documentNames.next(this.documents.map(d => ({ index: d.index, name: d.name })));
   }
 
   addEmptyDocument(name: string): void {
-    const document = {name, index: this.documents.length, equation: [{value: '', type: EqComponentTypes.Input}]};
+    const document = { name, index: this.documents.length, equation: [{ value: '', type: EqComponentTypes.Input }] };
     this.documents.push(document);
     this.openDocument(document.index);
     this.updateDocumentNames();
@@ -80,7 +95,7 @@ export class EquationService {
     localStorage.setItem('documents', JSON.stringify(this.documents));
   }
 
-  changeDocumentNames(newNames: DocumentNames): void{
+  changeDocumentNames(newNames: DocumentNames): void {
     newNames.forEach(document => this.documents.find(d => d.index === document.index).name = document.name);
     this.saveDocuments();
   }

@@ -1,10 +1,20 @@
-<div class="equation-container">
-	<ng-container *ngFor="let component of equation">
-		<ng-container [ngSwitch]="component.type">
-			<div *ngSwitchCase="'input'" class="input" contenteditable>{{component.value}}</div>
-			<ng-katex *ngSwitchCase="'function'" [equation]="component.value"></ng-katex>
-			<app-equation *ngSwitchCase="'superscript'" class="superscript" [equation]='component.value'></app-equation>
-			<app-equation *ngSwitchCase="'subscript'" class="subscript" [equation]='component.value'></app-equation>
+<div class="equation-container" [formGroup]="group">
+	<ng-container *ngFor="let component of array.controls; let i = index">
+		<ng-container [ngSwitch]="equation[i].type">
+			<div *ngSwitchCase="'input'" [formGroup]="component">
+				<div class="input" formControlName='value' contenteditable></div>
+			</div>
+			<div *ngSwitchCase="'function'" [formGroup]='component'>
+				<ng-katex *ngSwitchCase="'function'" [equation]="component.value"></ng-katex>
+			</div>
+			<div *ngSwitchCase="'superscript'" class="superscript">
+				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'>
+				</app-equation>
+			</div>
+			<div *ngSwitchCase="'subscript'" class="subscript">
+				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation[i].value'>
+				</app-equation>
+			</div>
 			<div *ngSwitchCase="'subandsuperscript'" class="subandsuperscript">
 				<app-equation [equation]="component.value[0]"></app-equation>
 				<app-equation [equation]="component.value[1]"></app-equation>
