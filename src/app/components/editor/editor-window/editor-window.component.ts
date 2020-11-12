@@ -15,7 +15,7 @@ export class EditorWindowComponent implements OnInit {
       this.createForm(this.equationForm.controls.array as FormArray, e);
     });
 
-    this.equationForm.valueChanges.subscribe(value => console.log(value));
+    this.equationForm.valueChanges.subscribe(value => this.equationService.updateEquation(value.array));
   }
 
   createForm(form: FormArray, equation: Equation): void {

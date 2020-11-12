@@ -89,6 +89,13 @@ export class EquationService {
     let currentEquation = this.documents[this.currentDocumentIndex].equation;
     if (this.currentLocation.path) { currentEquation = currentEquation[this.currentLocation.path] as any; }
     currentEquation.splice(this.currentLocation.position, 0, ...equation);
+    this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
+    this.saveDocuments();
+  }
+
+  updateEquation(equation: Equation): void {
+    this.documents[this.currentDocumentIndex].equation = equation;
+    this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.saveDocuments();
   }
 
