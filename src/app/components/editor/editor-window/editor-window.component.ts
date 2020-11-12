@@ -10,7 +10,7 @@ import { EqComponentTypes, Equation, EquationService } from 'src/app/services/eq
 export class EditorWindowComponent implements OnInit {
   equationForm: FormGroup;
   constructor(public equationService: EquationService, private fb: FormBuilder) {
-    equationService.currentDocument.subscribe(e => {
+    equationService.currentEquation.subscribe(e => {
       this.equationForm = this.fb.group({ array: this.fb.array([]) });
       this.createForm(this.equationForm.controls.array as FormArray, e);
     });
@@ -21,6 +21,7 @@ export class EditorWindowComponent implements OnInit {
   createForm(form: FormArray, equation: Equation): void {
     equation.forEach(component => {
       switch (component.type) {
+        case EqComponentTypes.Function:
         case EqComponentTypes.Input: {
           form.push(this.fb.group(component));
           break;

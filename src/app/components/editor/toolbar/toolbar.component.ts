@@ -16,7 +16,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   onClick(code: string): void {
-    this.equationService.addToEquation([{value: code, type: EqComponentTypes.Function}, {value: '', type: EqComponentTypes.Input}]);
+    this.equationService.addToEquation([{ value: '', type: EqComponentTypes.Input }, { value: code, type: EqComponentTypes.Function }]);
   }
 
 }

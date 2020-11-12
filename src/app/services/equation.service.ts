@@ -38,7 +38,7 @@ export class EquationService {
   private _currentEquation = new BehaviorSubject<Equation>(undefined);
   private _documentNames = new BehaviorSubject<DocumentNames>(undefined);
 
-  get currentDocument(): Observable<Equation> {
+  get currentEquation(): Observable<Equation> {
     return this._currentEquation.asObservable();
   }
 
@@ -50,20 +50,6 @@ export class EquationService {
     const data = JSON.parse(localStorage.getItem('documents'));
     const currentDocument = JSON.parse(localStorage.getItem('currentDocument'));
     this.documents = data ? data : [];
-    this.documents = [
-      {
-        name: 'abba',
-        index: 0,
-        equation: [
-          {
-            value: '15',
-            type: EqComponentTypes.Input
-          },
-          {
-            value: [{ value: '2', type: EqComponentTypes.Input }],
-            type: EqComponentTypes.Superscript
-          }]
-      }];
 
     if (this.documents.length) {
       this.openDocument(currentDocument | 0);

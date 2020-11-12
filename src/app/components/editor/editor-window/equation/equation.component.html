@@ -5,7 +5,7 @@
 				<div class="input" formControlName='value' contenteditable></div>
 			</div>
 			<div *ngSwitchCase="'function'" [formGroup]='component'>
-				<ng-katex *ngSwitchCase="'function'" [equation]="component.value"></ng-katex>
+				<ng-katex *ngSwitchCase="'function'" [equation]="equation[i].value"></ng-katex>
 			</div>
 			<div *ngSwitchCase="'superscript'" class="superscript">
 				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'>
