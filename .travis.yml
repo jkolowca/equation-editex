@@ -15,6 +15,7 @@ install:
 script:
   - npm install -D angular-cli-ghpages
   - ng build --aot --prod --base-href https://jkolowca.github.io/equation-editex/
+  - cp dist/equation-editex/{index.html, 404.html}
 
 deploy:
   provider: pages
