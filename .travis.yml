@@ -13,7 +13,7 @@ install:
   - npm ci
 
 script:
-  - ng build --aot --prod
+  - ng build --aot --prod — base-href https://jkolowca.github.io/equation-editex/
 
 deploy:
   provider: pages
