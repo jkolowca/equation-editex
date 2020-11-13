@@ -13,6 +13,7 @@ install:
   - npm ci
 
 script:
+  - npm install -D angular-cli-ghpages
   - ng build --aot --prod — base-href https://jkolowca.github.io/equation-editex/
 
 deploy:
