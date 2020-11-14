@@ -1,20 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-export enum EqComponentTypes {
-  Input = 'input',
-  Function = 'function',
-  Subscript = 'subscript',
-  Superscript = 'superscript',
-  SubAndSuperscript = 'subandsuperscript',
-  Matrix = 'matrix',
-  Binominal = 'binominal'
-}
-
-export interface EqComponent {
-  value: string | Equation | Equation[];
-  type: EqComponentTypes;
-}
+import { Equation, parseEquation } from '../helpers/equation-components';
 
 export interface Document {
   name: string;
@@ -22,7 +8,6 @@ export interface Document {
   equation: Equation;
 }
 
-export type Equation = EqComponent[];
 export type DocumentNames = Array<{ name: string, index: number }>;
 
 @Injectable({
@@ -33,6 +18,7 @@ export class EquationService {
     path: undefined,
     position: 0
   };
+
   currentDocumentIndex: number;
   private documents: Document[];
   private _currentEquation = new BehaviorSubject<Equation>(undefined);
@@ -49,7 +35,7 @@ export class EquationService {
   initialize(): void {
     const data = JSON.parse(localStorage.getItem('documents'));
     const currentDocument = JSON.parse(localStorage.getItem('currentDocument'));
-    this.documents = data ? data : [];
+    this.documents = data ? data.map(document => ({ ...document, equation: parseEquation(document.equation.value) })) : [];
 
     if (this.documents.length) {
       this.openDocument(currentDocument | 0);
@@ -71,7 +57,7 @@ export class EquationService {
   }
 
   addEmptyDocument(name: string): void {
-    const document = { name, index: this.documents.length, equation: [{ value: '', type: EqComponentTypes.Input }] };
+    const document = { name, index: this.documents.length, equation: new Equation() };
     this.documents.push(document);
     this.openDocument(document.index);
     this.updateDocumentNames();
@@ -88,14 +74,15 @@ export class EquationService {
   addToEquation(equation: Equation): void {
     let currentEquation = this.documents[this.currentDocumentIndex].equation;
     if (this.currentLocation.path) { currentEquation = currentEquation[this.currentLocation.path] as any; }
-    currentEquation.splice(this.currentLocation.position, 0, ...equation);
+    currentEquation.value.splice(this.currentLocation.position, 0, ...equation.value);
     this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.saveDocuments();
+    console.log(this.documents[this.currentDocumentIndex].equation.toString());
   }
 
-  updateEquation(equation: Equation): void {
-    console.log(`save`);
-    this.documents[this.currentDocumentIndex].equation = equation;
+  updateEquation(equation: any[]): void {
+    this.documents[this.currentDocumentIndex].equation = parseEquation(equation);
+    this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.saveDocuments();
   }
 

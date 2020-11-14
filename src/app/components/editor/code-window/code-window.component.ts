@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { EquationService } from 'src/app/services/equation.service';
 
 @Component({
   selector: 'app-code-window',
   templateUrl: './code-window.component.html',
   styleUrls: ['./code-window.component.scss']
 })
-export class CodeWindowComponent implements OnInit {
+export class CodeWindowComponent {
+  equation: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(equationService: EquationService) {
+    equationService.currentEquation.subscribe(equation => this.equation = equation.toString());
   }
-
 }

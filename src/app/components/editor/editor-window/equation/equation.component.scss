@@ -1,8 +1,12 @@
 .equation-container {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 }
 
+.equation-container > * {
+	margin-bottom: 10px;
+}
 
 .input {
 	border: 1px var(--primary-lighter-color) solid;

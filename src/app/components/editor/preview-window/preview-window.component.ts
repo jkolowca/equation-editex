@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { EquationService } from 'src/app/services/equation.service';
 
 @Component({
   selector: 'app-preview-window',
   templateUrl: './preview-window.component.html',
   styleUrls: ['./preview-window.component.scss']
 })
-export class PreviewWindowComponent implements OnInit {
+export class PreviewWindowComponent {
+  equation: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(equationService: EquationService) {
+    equationService.currentEquation.subscribe(equation => this.equation = equation.toString());
   }
-
 }

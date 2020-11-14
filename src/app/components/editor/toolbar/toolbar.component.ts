@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EqComponentTypes, EquationService } from 'src/app/services/equation.service';
+import { EqComponentTypes, Equation, FunctionComponent, InputComponent } from 'src/app/helpers/equation-components';
+import { EquationService } from 'src/app/services/equation.service';
 import ToolbarContent from './toolbar.json';
 
 @Component({
@@ -16,7 +17,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   onClick(code: string): void {
-    this.equationService.addToEquation([{ value: '', type: EqComponentTypes.Input }, { value: code, type: EqComponentTypes.Function }]);
+    this.equationService.addToEquation(new Equation([new InputComponent(), new FunctionComponent(code)]));
   }
 
 }

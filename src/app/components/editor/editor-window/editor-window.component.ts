@@ -1,25 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { EqComponentTypes, Equation, EquationService } from 'src/app/services/equation.service';
+import { Equation, EqComponentTypes } from 'src/app/helpers/equation-components';
+import { EquationService } from 'src/app/services/equation.service';
 
 @Component({
   selector: 'app-editor-window',
   templateUrl: './editor-window.component.html',
   styleUrls: ['./editor-window.component.scss']
 })
-export class EditorWindowComponent implements OnInit {
+export class EditorWindowComponent {
   equationForm: FormGroup;
   constructor(public equationService: EquationService, private fb: FormBuilder) {
     equationService.currentEquation.subscribe(e => {
       this.equationForm = this.fb.group({ array: this.fb.array([]) });
       this.createForm(this.equationForm.controls.array as FormArray, e);
-      this.equationForm.valueChanges.subscribe(value => this.equationService.updateEquation(value.array));
     });
+  }
 
+  onValueChanged(): void {
+    this.equationService.updateEquation(this.equationForm.value.array);
   }
 
   createForm(form: FormArray, equation: Equation): void {
-    equation.forEach(component => {
+    equation.value.forEach(component => {
       switch (component.type) {
         case EqComponentTypes.Function:
         case EqComponentTypes.Input: {
@@ -35,7 +38,4 @@ export class EditorWindowComponent implements OnInit {
       }
     });
   }
-  ngOnInit(): void {
-  }
-
 }

@@ -1,4 +1,4 @@
 <div class="container">
 	<app-equation [equation]="equationService.currentEquation | async" [array]="equationForm.controls.array"
-		[group]="this.equationForm"></app-equation>
+		[group]="this.equationForm" (valueChanges)="onValueChanged()"></app-equation>
 </div>
