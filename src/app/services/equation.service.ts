@@ -33,6 +33,14 @@ export class EquationService {
   }
 
   initialize(): void {
+    const timestamp = JSON.parse(localStorage.getItem('timestamp'));
+    if (timestamp) {
+      const now = new Date().getTime();
+      if (now - timestamp > 2 * 3600000) {
+        localStorage.clear();
+      }
+    }
+    else { localStorage.clear(); }
     const data = JSON.parse(localStorage.getItem('documents'));
     const currentDocument = JSON.parse(localStorage.getItem('currentDocument'));
     this.documents = data ? data.map(document => ({ ...document, equation: parseEquation(document.equation.value) })) : [];
@@ -69,6 +77,7 @@ export class EquationService {
 
   saveDocuments(): void {
     localStorage.setItem('documents', JSON.stringify(this.documents));
+    localStorage.setItem('timestamp', new Date().getTime().toString());
   }
 
   addToEquation(equation: Equation): void {
