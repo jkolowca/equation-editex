@@ -35,7 +35,7 @@ class StringValueComponent implements EqComponent {
   constructor(value?: string) { this.value = value ? value : ''; }
 
   toString(): string {
-    return this.value + ' ';
+    return this.value.length ? this.value + ' ' : '';
   }
 }
 

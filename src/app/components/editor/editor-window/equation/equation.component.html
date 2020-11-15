@@ -2,24 +2,22 @@
 	<ng-container *ngFor="let component of array.controls; let i = index">
 		<ng-container [ngSwitch]="equation.value[i].type">
 			<div *ngSwitchCase="'input'" [formGroup]="component">
-				<div class="input" formControlName='value' contenteditable (blur)="valueChanges.emit()"></div>
+				<div class="input" formControlName='value' contenteditable></div>
 			</div>
 			<div *ngSwitchCase="'function'" [formGroup]='component'>
 				<ng-katex *ngSwitchCase="'function'" [equation]="equation.value[i].value"></ng-katex>
 			</div>
 			<div *ngSwitchCase="'superscript'" class="superscript">
-				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation.value[i].value'
-					(valueChanges)="valueChanges.emit()">
+				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation.value[i].value'>
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subscript'" class="subscript">
-				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation.value[i].value'
-					(valueChanges)="valueChanges.emit()">
+				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation.value[i].value'>
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subandsuperscript'" class="subandsuperscript">
-				<app-equation [equation]="component.value[0]" (valueChanges)="valueChanges.emit()"></app-equation>
-				<app-equation [equation]="component.value[1]" (valueChanges)="valueChanges.emit()"></app-equation>
+				<app-equation [equation]="component.value[0]"></app-equation>
+				<app-equation [equation]="component.value[1]"></app-equation>
 			</div>
 		</ng-container>
 	</ng-container>
