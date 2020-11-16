@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { EqComponentTypes, Equation, parseEquation } from '../helpers/equation-components';
 
 export interface Document {
@@ -26,6 +26,7 @@ export class EquationService {
   private _currentEquation = new BehaviorSubject<Equation>(undefined);
   private _documentNames = new BehaviorSubject<DocumentNames>(undefined);
   private _equationForm = new BehaviorSubject<FormGroup>(undefined);
+  private subscription: Subscription;
 
   constructor(private fb: FormBuilder) { }
 
@@ -43,7 +44,7 @@ export class EquationService {
 
   initialize(): void {
     this.form = this.fb.group({ value: this.fb.array([]) });
-    this.form.valueChanges.subscribe(form => this.onFormValueChange(form));
+    this.subscription = this.form.valueChanges.subscribe(form => this.onFormValueChange(form));
     const timestamp = JSON.parse(localStorage.getItem('timestamp'));
     if (timestamp) {
       const now = new Date().getTime();
@@ -86,8 +87,7 @@ export class EquationService {
   openDocument(index: number): void {
     this.currentDocumentIndex = index;
     this._currentEquation.next(this.documents[index].equation);
-    this.createForm(this.form.controls.value as FormArray, this.documents[index].equation);
-    this._equationForm.next(this.form);
+    this.updateEquationForm();
     localStorage.setItem('currentDocument', index.toString());
   }
 
@@ -125,10 +125,11 @@ export class EquationService {
   }
 
   updateEquationForm(): void {
-    this.form.controls.value = this.fb.array([]);
+    this.subscription.unsubscribe();
+    (this.form.controls.value as FormArray).clear();
     this.createForm(this.form.controls.value as FormArray, this.documents[this.currentDocumentIndex].equation);
-    this.form.valueChanges.subscribe(form => this.onFormValueChange(form));
     this._equationForm.next(this.form);
+    this.subscription = this.form.valueChanges.subscribe(form => this.onFormValueChange(form));
   }
 
   setEquationValue(equation: any[]): void {
@@ -143,7 +144,9 @@ export class EquationService {
   }
 
   onFormValueChange(form: any): void {
-    this.setEquationValue(form.value);
+    this.documents[this.currentDocumentIndex].equation = parseEquation(form.value);
+    this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
+    this.storeData();
   }
 }
 
