@@ -128,6 +128,16 @@ export class EquationService {
     this.updateEquationForm();
   }
 
+  removeComponentFromEquation(): void {
+    let currentEquation = this.documents[this.currentDocumentIndex].equation as any;
+    if (this.currentLocation.position < 2) { return; }
+    this.currentLocation.position -= 2;
+    this.currentLocation.path.forEach(p => currentEquation = currentEquation[p]);
+    currentEquation.splice(this.currentLocation.position, 1);
+    this.onEquationChange();
+    this.updateEquationForm();
+  }
+
   onEquationChange(): void {
     this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.storeData();

@@ -2,7 +2,8 @@
 	<ng-container *ngFor="let component of array.controls; let i = index">
 		<ng-container [ngSwitch]="equation[i].type">
 			<div *ngSwitchCase="'input'" [formGroup]="component">
-				<div class="input" formControlName='value' contenteditable (click)="updatePath(path, i+1)"></div>
+				<div class="input" formControlName='value' contenteditable (focus)="onFocus(path, i+1, $event.target.innerText)"
+					(keyup)="onKey($event.key, $event.target.innerText)"></div>
 			</div>
 			<div *ngSwitchCase="'function'" [formGroup]='component'>
 				<ng-katex *ngSwitchCase="'function'" [equation]="equation[i].value"></ng-katex>
