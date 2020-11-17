@@ -55,8 +55,7 @@ export class EquationService {
     else { localStorage.clear(); }
     const data = JSON.parse(localStorage.getItem('documents'));
     const currentDocument = JSON.parse(localStorage.getItem('currentDocument'));
-    console.log(data);
-    this.documents = data ? data.map(document => ({ ...document, equation: parseEquation(document.equation.value) })) : [];
+    this.documents = data ? data.map(document => ({ ...document, equation: parseEquation(document.equation) })) : [];
 
     if (this.documents.length) {
       this.openDocument(currentDocument | 0);
@@ -80,6 +79,11 @@ export class EquationService {
           form.push(this.fb.group({ value: this.fb.array([]), type: component.type }));
           this.createForm(form.get([form.length - 1, 'value']) as FormArray, component.value as EqComponent[]);
           break;
+        }
+        case EqComponentTypes.SubAndSuperscript: {
+          form.push(this.fb.group({value: this.fb.array([this.fb.array([]), this.fb.array([])]), type: component.type}));
+          this.createForm(form.get([form.length - 1, 'value']).get([0]) as FormArray, component.value[0] as EqComponent[]);
+          this.createForm(form.get([form.length - 1, 'value']).get([1]) as FormArray, component.value[1] as EqComponent[]);
         }
       }
     });
@@ -145,7 +149,6 @@ export class EquationService {
   }
 
   onFormValueChange(form: any): void {
-    console.log(form);
     this.documents[this.currentDocumentIndex].equation = parseEquation(form.value);
     this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.storeData();
