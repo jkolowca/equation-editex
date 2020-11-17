@@ -5,7 +5,6 @@
 }
 
 .equation-container > * {
-	margin-bottom: 10px;
 }
 
 .input {
@@ -17,11 +16,15 @@
 	height: fit-content;
 }
 
+.input:focus {
+	outline: none;
+}
+
 .superscript .input {
 	margin-bottom: 15px;
 }
 .subscript .input {
-	margin-top: 15px;
+	margin-top: 30px;
 }
 
 .subandsuperscript {
@@ -30,9 +33,27 @@
 	grid-auto-rows: 1fr;
 }
 
-.input:focus {
-	outline: none;
+.fraction {
+	display: grid;
+	grid-template-columns: (1, 1fr);
+	grid-auto-rows: 1fr 1px 1fr;
+	grid-row-gap: 2px;
 }
+
+.binominal {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 2px;
+
+	ng-katex {
+		font-size: 24px;
+	}
+}
+
+.separator {
+	background: black;
+}
+
 
 ng-katex {
 	font-size: 14px;

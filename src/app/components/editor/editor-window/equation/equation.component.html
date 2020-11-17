@@ -19,6 +19,19 @@
 				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
 				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
 			</div>
+			<div *ngSwitchCase="'fraction'" class="fraction">
+				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
+				<div class="separator"></div>
+				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
+			</div>
+			<div *ngSwitchCase="'binominal'" class="binominal">
+				<ng-katex equation="("></ng-katex>
+					<div class="subandsuperscript">
+						<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
+						<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
+					</div>
+				<ng-katex equation=")"></ng-katex>
+			</div>
 		</ng-container>
 	</ng-container>
 </div>

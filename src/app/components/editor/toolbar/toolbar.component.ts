@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EqComponent, FunctionComponent, InputComponent, SubAndSuperscriptComponent, SubscriptComponent, SuperscriptComponent } from 'src/app/helpers/equation-components';
+import * as c from 'src/app/helpers/equation-components';
 import { EquationService } from 'src/app/services/equation.service';
 import ToolbarContent from './toolbar.json';
 
@@ -17,23 +17,31 @@ export class ToolbarComponent implements OnInit {
   }
 
   onClick(code: string, type?: string): void {
-    const equation: Array<EqComponent> = [new InputComponent()];
+    const equation: Array<c.EqComponent> = [new c.InputComponent()];
     if (type) {
       switch (type) {
         case 'superscript': {
-          equation.push(new SuperscriptComponent());
+          equation.push(new c.SuperscriptComponent());
           break;
         }
         case 'subscript': {
-          equation.push(new SubscriptComponent());
+          equation.push(new c.SubscriptComponent());
           break;
         }
         case 'subandsuperscript': {
-          equation.push(new SubAndSuperscriptComponent());
+          equation.push(new c.SubAndSuperscriptComponent());
+          break;
+        }
+        case 'fraction': {
+          equation.push(new c.FractionComponent());
+          break;
+        }
+        case 'binominal': {
+          equation.push(new c.BinominalComponent());
           break;
         }
       }
-    } else { equation.push(new FunctionComponent(code)); }
+    } else { equation.push(new c.FunctionComponent(code)); }
     this.equationService.addComponentsToEquation(equation);
   }
 }

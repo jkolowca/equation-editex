@@ -14,6 +14,14 @@
 				{
 					"code": "x^{y}_{z}",
 					"type": "subandsuperscript"
+				},
+				{
+					"code": "\\frac{x}{y}",
+					"type": "fraction"
+				},
+				{
+					"code": "\\binom{x}{y}",
+					"type": "binominal"
 				}
 			]
 		},
