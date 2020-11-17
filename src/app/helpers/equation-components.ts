@@ -1,6 +1,3 @@
-import { EquationComponent } from '../components/editor/editor-window/equation/equation.component';
-import { EquationService } from '../services/equation.service';
-
 export enum EqComponentTypes {
   Input = 'input',
   Function = 'function',
@@ -69,30 +66,30 @@ export class SuperscriptComponent extends EquationValueComponent {
 class ComplexValueComponent implements EqComponent {
   value: EqComponent[][];
   readonly type: EqComponentTypes;
-  code: [string, string, string];
+  code: string[];
 
   constructor(value?: [EqComponent[], EqComponent[]]) {
     this.value = value ? value : [[new InputComponent()], [new InputComponent()]];
   }
 
   toString(): string {
-    return `${this.code[0]}{${toString(this.value[0])}}${this.code[1]}{${toString(this.value[1])}${this.code[2]}`;
+    return `${this.code[0]}{${toString(this.value[0])}}${this.code[1]}{${toString(this.value[1])}${this.code[2]}}`;
   }
 }
 
 export class SubAndSuperscriptComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.SubAndSuperscript;
-  code: ['^', '_', ''];
+  code = ['^', '_', ''];
 }
 
 export class FractionComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Fraction;
-  code: ['\\frac', '', ''];
+  code = ['\\frac', '', ''];
 }
 
 export class BinominalComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Binominal;
-  code: ['\\binom', '', ''];
+  code = ['\\binom', '', ''];
 }
 
 export function parseEquation(equation: any[]): EqComponent[] {
@@ -101,7 +98,6 @@ export function parseEquation(equation: any[]): EqComponent[] {
     let value = component.value;
     if ((value as object).hasOwnProperty('value')) { value = value.value; }
     else if (Array.isArray(value)) { value.map(v => (value as object).hasOwnProperty('value') ? value.value : value); }
-    console.log(type, value);
     switch (type) {
       case 'input':
         return new InputComponent(value);

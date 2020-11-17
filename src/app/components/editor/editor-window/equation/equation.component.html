@@ -16,8 +16,8 @@
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subandsuperscript'" class="subandsuperscript">
-				<app-equation [equation]="component.value[0]"></app-equation>
-				<app-equation [equation]="component.value[1]"></app-equation>
+				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
+				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
 			</div>
 		</ng-container>
 	</ng-container>

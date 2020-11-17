@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EqComponent, FunctionComponent, InputComponent, SubscriptComponent, SuperscriptComponent } from 'src/app/helpers/equation-components';
+import { EqComponent, FunctionComponent, InputComponent, SubAndSuperscriptComponent, SubscriptComponent, SuperscriptComponent } from 'src/app/helpers/equation-components';
 import { EquationService } from 'src/app/services/equation.service';
 import ToolbarContent from './toolbar.json';
 
@@ -26,6 +26,10 @@ export class ToolbarComponent implements OnInit {
         }
         case 'subscript': {
           equation.push(new SubscriptComponent());
+          break;
+        }
+        case 'subandsuperscript': {
+          equation.push(new SubAndSuperscriptComponent());
           break;
         }
       }
