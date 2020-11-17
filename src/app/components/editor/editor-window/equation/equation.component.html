@@ -2,34 +2,42 @@
 	<ng-container *ngFor="let component of array.controls; let i = index">
 		<ng-container [ngSwitch]="equation[i].type">
 			<div *ngSwitchCase="'input'" [formGroup]="component">
-				<div class="input" formControlName='value' contenteditable></div>
+				<div class="input" formControlName='value' contenteditable (click)="updatePath(path, i+1)"></div>
 			</div>
 			<div *ngSwitchCase="'function'" [formGroup]='component'>
 				<ng-katex *ngSwitchCase="'function'" [equation]="equation[i].value"></ng-katex>
 			</div>
 			<div *ngSwitchCase="'superscript'" class="superscript">
-				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'>
+				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'
+					[path]="path.concat(i, 'value')">
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subscript'" class="subscript">
-				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation[i].value'>
+				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation[i].value'
+					[path]="path.concat(i, 'value')">
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subandsuperscript'" class="subandsuperscript">
-				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
-				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
+				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component"
+					[equation]="equation[i].value[0]" [path]="path.concat(i, 'value', '0')"></app-equation>
+				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component"
+					[equation]="equation[i].value[1]" [path]="path.concat(i, 'value', '1')"></app-equation>
 			</div>
 			<div *ngSwitchCase="'fraction'" class="fraction">
-				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
+				<app-equation [array]='$any(component).controls.value.get([0])' [group]="component"
+					[equation]="equation[i].value[0]" [path]="path.concat(i, 'value', '0')"></app-equation>
 				<div class="separator"></div>
-				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
+				<app-equation [array]='$any(component).controls.value.get([1])' [group]="component"
+					[equation]="equation[i].value[1]" [path]="path.concat(i, 'value', '1')"></app-equation>
 			</div>
 			<div *ngSwitchCase="'binominal'" class="binominal">
 				<ng-katex equation="("></ng-katex>
-					<div class="subandsuperscript">
-						<app-equation [array]='$any(component).controls.value.get([0])' [group]="component" [equation]="equation[i].value[0]"></app-equation>
-						<app-equation [array]='$any(component).controls.value.get([1])' [group]="component" [equation]="equation[i].value[1]"></app-equation>
-					</div>
+				<div class="subandsuperscript">
+					<app-equation [array]='$any(component).controls.value.get([0])' [group]="component"
+						[equation]="equation[i].value[0]" [path]="path.concat(i, 'value', '0')"></app-equation>
+					<app-equation [array]='$any(component).controls.value.get([1])' [group]="component"
+						[equation]="equation[i].value[1]" [path]="path.concat(i, 'value', '1')"></app-equation>
+				</div>
 				<ng-katex equation=")"></ng-katex>
 			</div>
 		</ng-container>

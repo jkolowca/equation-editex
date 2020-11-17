@@ -49,7 +49,7 @@ class EquationValueComponent implements EqComponent {
   }
 
   toString(): string {
-    return `${this.code}{${toString(this.value)}}`;
+    return `${this.code}{${toString(this.value)}} `;
   }
 }
 
@@ -73,7 +73,7 @@ class ComplexValueComponent implements EqComponent {
   }
 
   toString(): string {
-    return `${this.code[0]}{${toString(this.value[0])}}${this.code[1]}{${toString(this.value[1])}${this.code[2]}}`;
+    return `${this.code[0]}{${toString(this.value[0])}}${this.code[1]}{${toString(this.value[1])}${this.code[2]}} `;
   }
 }
 

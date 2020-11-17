@@ -16,8 +16,8 @@ export type DocumentNames = Array<{ name: string, index: number }>;
 })
 export class EquationService {
   currentLocation = {
-    path: undefined,
-    position: 0
+    path: [] as Array<string>,
+    position: 3
   };
 
   currentDocumentIndex: number;
@@ -83,7 +83,7 @@ export class EquationService {
         case EqComponentTypes.Binominal:
         case EqComponentTypes.SubAndSuperscript:
         case EqComponentTypes.Fraction: {
-          form.push(this.fb.group({value: this.fb.array([this.fb.array([]), this.fb.array([])]), type: component.type}));
+          form.push(this.fb.group({ value: this.fb.array([this.fb.array([]), this.fb.array([])]), type: component.type }));
           this.createForm(form.get([form.length - 1, 'value']).get([0]) as FormArray, component.value[0] as EqComponent[]);
           this.createForm(form.get([form.length - 1, 'value']).get([1]) as FormArray, component.value[1] as EqComponent[]);
         }
@@ -96,6 +96,7 @@ export class EquationService {
     this._currentEquation.next(this.documents[index].equation);
     this.updateEquationForm();
     localStorage.setItem('currentDocument', index.toString());
+    this.currentLocation = { path: [], position: this.documents[index].equation.length };
   }
 
   updateDocumentNames(): void {
@@ -119,9 +120,10 @@ export class EquationService {
   }
 
   addComponentsToEquation(equation: EqComponent[]): void {
-    let currentEquation = this.documents[this.currentDocumentIndex].equation;
-    if (this.currentLocation.path) { currentEquation = currentEquation[this.currentLocation.path] as any; }
+    let currentEquation = this.documents[this.currentDocumentIndex].equation as any;
+    this.currentLocation.path.forEach(p => currentEquation = currentEquation[p]);
     currentEquation.splice(this.currentLocation.position, 0, ...equation);
+    this.currentLocation.position += equation.length;
     this.onEquationChange();
     this.updateEquationForm();
   }

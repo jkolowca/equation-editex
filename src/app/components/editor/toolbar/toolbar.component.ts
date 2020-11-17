@@ -17,7 +17,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   onClick(code: string, type?: string): void {
-    const equation: Array<c.EqComponent> = [new c.InputComponent()];
+    const equation: Array<c.EqComponent> = [];
     if (type) {
       switch (type) {
         case 'superscript': {
@@ -42,6 +42,7 @@ export class ToolbarComponent implements OnInit {
         }
       }
     } else { equation.push(new c.FunctionComponent(code)); }
+    equation.push(new c.InputComponent());
     this.equationService.addComponentsToEquation(equation);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormArray } from '@angular/forms';
 import { EqComponent } from 'src/app/helpers/equation-components';
+import { EquationService } from 'src/app/services/equation.service';
 
 @Component({
   selector: 'app-equation',
@@ -11,4 +12,11 @@ export class EquationComponent {
   @Input() equation: EqComponent[];
   @Input() array: FormArray;
   @Input() group: FormArray;
+  @Input() path: Array<string>;
+
+  constructor(private equationService: EquationService) { }
+  updatePath(path: Array<string>, position: number): void {
+    this.equationService.currentLocation = { path, position };
+    console.log(this.equationService.currentLocation);
+  }
 }
