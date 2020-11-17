@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EqComponentTypes, Equation, FunctionComponent, InputComponent } from 'src/app/helpers/equation-components';
+import { EqComponent, FunctionComponent, InputComponent, SubscriptComponent, SuperscriptComponent } from 'src/app/helpers/equation-components';
 import { EquationService } from 'src/app/services/equation.service';
 import ToolbarContent from './toolbar.json';
 
@@ -16,8 +16,20 @@ export class ToolbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick(code: string): void {
-    this.equationService.addComponentsToEquation(new Equation([new InputComponent(), new FunctionComponent(code)]));
+  onClick(code: string, type?: string): void {
+    const equation: Array<EqComponent> = [new InputComponent()];
+    if (type) {
+      switch (type) {
+        case 'superscript': {
+          equation.push(new SuperscriptComponent());
+          break;
+        }
+        case 'subscript': {
+          equation.push(new SubscriptComponent());
+          break;
+        }
+      }
+    } else { equation.push(new FunctionComponent(code)); }
+    this.equationService.addComponentsToEquation(equation);
   }
-
 }

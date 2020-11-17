@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { EqComponentTypes, Equation, parseEquation } from '../helpers/equation-components';
+import { EqComponentTypes, EqComponent, parseEquation, InputComponent } from '../helpers/equation-components';
 
 export interface Document {
   name: string;
   index: number;
-  equation: Equation;
+  equation: EqComponent[];
 }
 
 export type DocumentNames = Array<{ name: string, index: number }>;
@@ -23,7 +23,7 @@ export class EquationService {
   currentDocumentIndex: number;
   private documents: Document[];
   private form: FormGroup;
-  private _currentEquation = new BehaviorSubject<Equation>(undefined);
+  private _currentEquation = new BehaviorSubject<EqComponent[]>(undefined);
   private _documentNames = new BehaviorSubject<DocumentNames>(undefined);
   private _equationForm = new BehaviorSubject<FormGroup>(undefined);
   private subscription: Subscription;
@@ -34,7 +34,7 @@ export class EquationService {
     return this._equationForm.asObservable();
   }
 
-  get currentEquation(): Observable<Equation> {
+  get currentEquation(): Observable<EqComponent[]> {
     return this._currentEquation.asObservable();
   }
 
@@ -55,6 +55,7 @@ export class EquationService {
     else { localStorage.clear(); }
     const data = JSON.parse(localStorage.getItem('documents'));
     const currentDocument = JSON.parse(localStorage.getItem('currentDocument'));
+    console.log(data);
     this.documents = data ? data.map(document => ({ ...document, equation: parseEquation(document.equation.value) })) : [];
 
     if (this.documents.length) {
@@ -66,8 +67,8 @@ export class EquationService {
     }
   }
 
-  createForm(form: FormArray, equation: Equation): void {
-    equation.value.forEach(component => {
+  createForm(form: FormArray, equation: EqComponent[]): void {
+    equation.forEach(component => {
       switch (component.type) {
         case EqComponentTypes.Function:
         case EqComponentTypes.Input: {
@@ -77,7 +78,7 @@ export class EquationService {
         case EqComponentTypes.Superscript:
         case EqComponentTypes.Subscript: {
           form.push(this.fb.group({ value: this.fb.array([]), type: component.type }));
-          this.createForm(form.get([form.length - 1, 'value']) as FormArray, component.value as Equation);
+          this.createForm(form.get([form.length - 1, 'value']) as FormArray, component.value as EqComponent[]);
           break;
         }
       }
@@ -96,7 +97,7 @@ export class EquationService {
   }
 
   addEmptyDocument(name: string): void {
-    const document = { name, index: this.documents.length, equation: new Equation() };
+    const document = { name, index: this.documents.length, equation: [new InputComponent()] };
     this.documents.push(document);
     this.openDocument(document.index);
     this.updateDocumentNames();
@@ -111,10 +112,10 @@ export class EquationService {
     localStorage.setItem('timestamp', new Date().getTime().toString());
   }
 
-  addComponentsToEquation(equation: Equation): void {
+  addComponentsToEquation(equation: EqComponent[]): void {
     let currentEquation = this.documents[this.currentDocumentIndex].equation;
     if (this.currentLocation.path) { currentEquation = currentEquation[this.currentLocation.path] as any; }
-    currentEquation.value.splice(this.currentLocation.position, 0, ...equation.value);
+    currentEquation.splice(this.currentLocation.position, 0, ...equation);
     this.onEquationChange();
     this.updateEquationForm();
   }
@@ -144,6 +145,7 @@ export class EquationService {
   }
 
   onFormValueChange(form: any): void {
+    console.log(form);
     this.documents[this.currentDocumentIndex].equation = parseEquation(form.value);
     this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.storeData();

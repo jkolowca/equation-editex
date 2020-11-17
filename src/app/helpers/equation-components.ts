@@ -1,3 +1,6 @@
+import { EquationComponent } from '../components/editor/editor-window/equation/equation.component';
+import { EquationService } from '../services/equation.service';
+
 export enum EqComponentTypes {
   Input = 'input',
   Function = 'function',
@@ -9,23 +12,15 @@ export enum EqComponentTypes {
   Matrix = 'matrix'
 }
 
+export function toString(equation: EqComponent[]): string {
+  return equation.map(c => c.toString()).reduce((a, b) => a + b, '');
+}
+
 export abstract class EqComponent {
-  value: string | Equation | Equation[];
+  value: string | EqComponent[] | EqComponent[][];
   readonly type: EqComponentTypes;
 
   abstract toString(): string;
-}
-
-export class Equation {
-  value: EqComponent[];
-
-  constructor(value?: EqComponent[]) {
-    this.value = value ? value : [new InputComponent()];
-  }
-
-  toString(): string {
-    return this.value.map(e => e.toString()).reduce((a, b) => a + b);
-  }
 }
 
 class StringValueComponent implements EqComponent {
@@ -48,16 +43,16 @@ export class FunctionComponent extends StringValueComponent {
 }
 
 class EquationValueComponent implements EqComponent {
-  value: Equation;
+  value: EqComponent[];
   readonly type: EqComponentTypes;
   code: string;
 
-  constructor(value?: Equation | EqComponent[]) {
-    this.value = value ? value instanceof Equation ? value : new Equation(value) : new Equation();
+  constructor(value?: EqComponent[]) {
+    this.value = value ? value : [new InputComponent()];
   }
 
   toString(): string {
-    return `${this.code}{${this.value.toString()}}`;
+    return `${this.code}{${toString(this.value)}}`;
   }
 }
 
@@ -72,19 +67,16 @@ export class SuperscriptComponent extends EquationValueComponent {
 }
 
 class ComplexValueComponent implements EqComponent {
-  value: Equation[];
+  value: EqComponent[][];
   readonly type: EqComponentTypes;
   code: [string, string, string];
 
-  constructor(value?: [EqComponent[] | Equation, EqComponent[] | Equation]) {
-    this.value = value ? [
-      value[0] instanceof Equation ? value[0] : new Equation(value[0]),
-      value[1] instanceof Equation ? value[1] : new Equation(value[1])
-    ] : [new Equation(), new Equation()];
+  constructor(value?: [EqComponent[], EqComponent[]]) {
+    this.value = value ? value : [[new InputComponent()], [new InputComponent()]];
   }
 
   toString(): string {
-    return `${this.code[0]}{${this.value[0].toString()}}${this.code[1]}{${this.value[1].toString()}${this.code[2]}`;
+    return `${this.code[0]}{${toString(this.value[0])}}${this.code[1]}{${toString(this.value[1])}${this.code[2]}`;
   }
 }
 
@@ -103,10 +95,13 @@ export class BinominalComponent extends ComplexValueComponent {
   code: ['\\binom', '', ''];
 }
 
-export function parseEquation(equation: any[]): Equation {
+export function parseEquation(equation: any[]): EqComponent[] {
   const newEquation: EqComponent[] = equation.map(component => {
     const type = component.type;
-    const value = component.value;
+    let value = component.value;
+    if ((value as object).hasOwnProperty('value')) { value = value.value; }
+    else if (Array.isArray(value)) { value.map(v => (value as object).hasOwnProperty('value') ? value.value : value); }
+    console.log(type, value);
     switch (type) {
       case 'input':
         return new InputComponent(value);
@@ -124,5 +119,5 @@ export function parseEquation(equation: any[]): Equation {
         return new BinominalComponent([parseEquation(value[0]), parseEquation(value[1])]);
     }
   });
-  return new Equation(newEquation);
+  return newEquation;
 }

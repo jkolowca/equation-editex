@@ -1,6 +1,23 @@
 {
 	"tabs": [
 		{
+			"name": "Basic Operations",
+			"buttons": [
+				{
+					"code": "x^{y}",
+					"type": "superscript"
+				},
+				{
+					"code": "x_{y}",
+					"type": "subscript"
+				},
+				{
+					"code": "x^{y}_{z}",
+					"type": "subandsuperscript"
+				}
+			]
+		},
+		{
 			"name": "Binary Operators",
 			"buttons": [
 				{

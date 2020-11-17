@@ -1,18 +1,18 @@
 <div class="equation-container" [formGroup]="group">
 	<ng-container *ngFor="let component of array.controls; let i = index">
-		<ng-container [ngSwitch]="equation.value[i].type">
+		<ng-container [ngSwitch]="equation[i].type">
 			<div *ngSwitchCase="'input'" [formGroup]="component">
 				<div class="input" formControlName='value' contenteditable></div>
 			</div>
 			<div *ngSwitchCase="'function'" [formGroup]='component'>
-				<ng-katex *ngSwitchCase="'function'" [equation]="equation.value[i].value"></ng-katex>
+				<ng-katex *ngSwitchCase="'function'" [equation]="equation[i].value"></ng-katex>
 			</div>
 			<div *ngSwitchCase="'superscript'" class="superscript">
-				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation.value[i].value'>
+				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'>
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subscript'" class="subscript">
-				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation.value[i].value'>
+				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation[i].value'>
 				</app-equation>
 			</div>
 			<div *ngSwitchCase="'subandsuperscript'" class="subandsuperscript">

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EquationService } from 'src/app/services/equation.service';
+import { toString } from 'src/app/helpers/equation-components';
 
 @Component({
   selector: 'app-code-window',
@@ -10,6 +11,6 @@ export class CodeWindowComponent {
   equation: string;
 
   constructor(equationService: EquationService) {
-    equationService.currentEquation.subscribe(equation => this.equation = equation.toString());
+    equationService.currentEquation.subscribe(equation => this.equation = toString(equation));
   }
 }
