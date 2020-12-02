@@ -18,6 +18,8 @@ import { EquationComponent } from './components/editor/editor-window/equation/eq
 import { CommonModule } from '@angular/common';
 import { DocumentBarComponent } from './components/document-bar/document-bar.component';
 import { EquationService } from './services/equation.service';
+import { FilePopupComponent } from './components/file-popup/file-popup.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { EquationService } from './services/equation.service';
     CodeWindowComponent,
     SearchBoxComponent,
     EquationComponent,
-    DocumentBarComponent
+    DocumentBarComponent,
+    FilePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { EquationService } from './services/equation.service';
     ReactiveFormsModule,
     ContenteditableValueAccessorModule,
     KatexModule,
-    CommonModule
+    CommonModule,
+    NgxDropzoneModule
   ],
   providers: [EquationService],
   bootstrap: [AppComponent]

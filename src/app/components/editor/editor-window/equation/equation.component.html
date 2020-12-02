@@ -12,8 +12,10 @@
 				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'
 					[path]="path.concat(i, 'value')">
 				</app-equation>
+				<div class="spacer"></div>
 			</div>
 			<div *ngSwitchCase="'subscript'" class="subscript">
+				<div class="spacer"></div>
 				<app-equation [array]='$any(component).controls.value' [group]="component" [equation]='equation[i].value'
 					[path]="path.concat(i, 'value')">
 				</app-equation>
@@ -40,6 +42,13 @@
 						[equation]="equation[i].value[1]" [path]="path.concat(i, 'value', '1')"></app-equation>
 				</div>
 				<ng-katex equation=")"></ng-katex>
+			</div>
+			<div *ngSwitchCase="'root'" class="root">
+				<app-equation class="root-degree" [array]='$any(component).controls.value.get([0])' [group]="component"
+					[equation]="equation[i].value[0]" [path]="path.concat(i, 'value', '0')"></app-equation>
+				<ng-katex equation="\sqrt{}"></ng-katex>
+				<app-equation class="root-value" [array]='$any(component).controls.value.get([1])' [group]="component"
+					[equation]="equation[i].value[1]" [path]="path.concat(i, 'value', '1')"></app-equation>
 			</div>
 		</ng-container>
 	</ng-container>

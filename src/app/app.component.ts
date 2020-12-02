@@ -38,7 +38,7 @@ import { EquationService } from './services/equation.service';
   `]
 })
 export class AppComponent {
-  constructor( private equationService: EquationService){
+  constructor(private equationService: EquationService) {
     this.equationService.initialize();
   }
 }

@@ -1,13 +1,17 @@
-<mat-toolbar class="document-bar" color="primary"><div class="content-block">
-	<ng-container *ngFor="let form of documentsMenu.controls, index as i">
-		<div class="label" (click)="openEquation(i, $event)" [formGroup]="form"  matRipple>
-			<div class="input" formControlName="name" [class.active]="equationService.currentDocumentIndex === i" spellcheck="false" (dblclick)="editText($event)" [routerLink]="['/editor', i]" contenteditable></div>
+<mat-toolbar class="document-bar" color="primary">
+	<div class="content-block">
+		<ng-container *ngFor="let form of documentsMenu.controls, index as i">
+			<div class="label" (click)="openEquation(i, $event)" [formGroup]="form" matRipple>
+				<div class="input" formControlName="name" [class.active]="equationService.currentDocumentIndex === i"
+					spellcheck="false" (dblclick)="editText($event)" [routerLink]="['/editor', i]" contenteditable></div>
+			</div>
+		</ng-container>
+		<div class="label right" (click)="addNewEquation('New equation')" matRipple>
+			<div class="input">Add new</div>
 		</div>
-	</ng-container>
-	<div class="label right" (click)="addNewEquation('New equation')" matRipple>
-		<div class="input">Add new</div>
+		<div class="label" (click)="openPopup()" matRipple>
+			<div class="input">Load from file</div>
+		</div>
 	</div>
-	<div class="label" (click)="addNewEquation('FileName')" matRipple>
-		<div class="input">Load from file</div>
-	</div>
-</div></mat-toolbar>
+</mat-toolbar>
+<app-file-popup #popup></app-file-popup>

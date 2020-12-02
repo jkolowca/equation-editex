@@ -1,0 +1,26 @@
+<div class="backdrop">
+  <div class="container">
+    <h1>Upload your file</h1>
+    <p>File should be .txt or .tex and contain only mathematical expressions</p>
+    <ngx-dropzone (change)="fileService.openFiles($event)">
+      <span class="material-icons">folder_open</span>
+      <h2>Drag & Drop your file here</h2>
+    </ngx-dropzone>
+    <div class="file-list" *ngIf="fileService.files.length">
+      <ng-container *ngFor="let f of fileService.files">
+        <div class="file">
+          <span class="material-icons gray">description</span>
+          {{f.file.name}}
+          <span class="material-icons result correct" *ngIf="f.valid">check</span>
+          <span class="material-icons result error" *ngIf="!f.valid">clear</span>
+          <span class="material-icons gray" (click)="fileService.onRemove(f)">delete_outline</span>
+        </div>
+        <div class="error-message" *ngIf="!f.valid">{{f.message}}</div>
+      </ng-container>
+    </div>
+    <div class="button-container">
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button (click)="onApply()">Apply</button>
+    </div>
+  </div>
+</div>

@@ -82,7 +82,8 @@ export class EquationService {
         }
         case EqComponentTypes.Binominal:
         case EqComponentTypes.SubAndSuperscript:
-        case EqComponentTypes.Fraction: {
+        case EqComponentTypes.Fraction:
+        case EqComponentTypes.Root: {
           form.push(this.fb.group({ value: this.fb.array([this.fb.array([]), this.fb.array([])]), type: component.type }));
           this.createForm(form.get([form.length - 1, 'value']).get([0]) as FormArray, component.value[0] as EqComponent[]);
           this.createForm(form.get([form.length - 1, 'value']).get([1]) as FormArray, component.value[1] as EqComponent[]);
@@ -111,7 +112,12 @@ export class EquationService {
     this.storeData();
   }
 
-  loadDocumentFromFile(fileName: string): void {
+  loadDocumentsFromFiles(files: { name: string, equation: EqComponent[] }[]): void {
+    const documents = files.map((f, i) => ({ name: f.name, index: this.documents.length + i, equation: f.equation }));
+    this.documents.push(...documents);
+    this.openDocument(this.documents.length - 1);
+    this.updateDocumentNames();
+    this.storeData();
   }
 
   storeData(): void {

@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditorComponent } from './components/editor/editor.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'editor/0', pathMatch: 'full'},
-  { path: 'editor/:equation', component: EditorComponent }
+  { path: '', component: EditorComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

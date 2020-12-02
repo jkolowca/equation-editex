@@ -17,31 +17,33 @@
 	outline: none;
 }
 
-.superscript .input {
-	margin-bottom: 15px;
+.superscript {
+	display: grid;
+	grid-template-columns: (1, 1fr);
+	grid-auto-rows: min-content;
 }
-.subscript .input {
-	margin-top: 30px;
+.subscript {
+	display: grid;
+	grid-template-columns: (1, 1fr);
+	grid-auto-rows: min-content;
 }
 
 .subandsuperscript {
 	display: grid;
 	grid-template-columns: (1, 1fr);
-	grid-auto-rows: 1fr;
+	grid-auto-rows: min-content;
 }
 
 .fraction {
 	display: grid;
 	grid-template-columns: (1, 1fr);
-	grid-auto-rows: 1fr 1px 1fr;
+	grid-auto-rows: min-content;
 	grid-row-gap: 2px;
 }
 
 .binominal {
-	display: grid;
-	grid-template-columns: 1fr min-content 1fr;
-	grid-column-gap: 2px;
-
+	display: flex;
+	align-items: center;
 	ng-katex {
 		font-size: 24px;
 	}
@@ -49,9 +51,25 @@
 
 .separator {
 	background: black;
+	height: 1px;
 }
 
 
 ng-katex {
 	font-size: 14px;
+}
+
+.spacer {
+	height: 10px;
+}
+
+.root {
+	display:flex;
+	align-items: center;
+	.root-degree {
+		margin-bottom: 10px;
+	}
+	.root-value {
+		border-top: 1px solid black;
+	}
 }

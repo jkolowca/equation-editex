@@ -4,24 +4,181 @@
 			"name": "Basic Operations",
 			"buttons": [
 				{
-					"code": "x^{y}",
-					"type": "superscript"
+					"display": "x^{y}",
+					"name": "superscript",
+					"equation": [
+						{
+							"type": "superscript",
+							"value": [
+								{
+									"type": "input",
+									"value": ""
+								}
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "x_{y}",
-					"type": "subscript"
+					"display": "x_{y}",
+					"name": "subscript",
+					"equation": [
+						{
+							"type": "subscript",
+							"value": [
+								{
+									"type": "input",
+									"value": ""
+								}
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "x^{y}_{z}",
-					"type": "subandsuperscript"
+					"display": "x^{y}_{z}",
+					"name": "subandsuperscript",
+					"equation": [
+						{
+							"type": "subandsuperscript",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\frac{x}{y}",
-					"type": "fraction"
+					"display": "\\frac{x}{y}",
+					"name": "fraction",
+					"equation": [
+						{
+							"type": "fraction",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\binom{x}{y}",
-					"type": "binominal"
+					"display": "\\binom{x}{y}",
+					"name": "binominal",
+					"equation": [
+						{
+							"type": "binominal",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\lim\\limits_{x \\to y}",
+					"name": "limit",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\lim\\limits"
+						},
+						{
+							"type": "subscript",
+							"value": [
+								{
+									"type": "input",
+									"value": ""
+								},
+								{
+									"type": "function",
+									"value": "\\to"
+								},
+								{
+									"type": "input",
+									"value": ""
+								}
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sqrt[x]{y}",
+					"name": "root",
+					"equation": [
+						{
+							"type": "root",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				}
 			]
 		},
@@ -29,109 +186,494 @@
 			"name": "Binary Operators",
 			"buttons": [
 				{
-					"code": "\\amalg"
+					"display": "\\amalg",
+					"name": "amalg",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\amalg"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\cup"
+					"display": "\\cup",
+					"name": "cup",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\cup"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\oplus"
+					"display": "\\oplus",
+					"name": "oplus",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\oplus"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\times"
+					"display": "\\times",
+					"name": "times",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\times"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\dagger "
+					"display": "\\dagger",
+					"name": "dagger",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\dagger"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\oslash "
+					"display": "\\oslash",
+					"name": "oslash",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\oslash"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\triangleleft"
+					"display": "\\triangleleft",
+					"name": "triangleleft",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\triangleleft"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigcirc"
+					"display": "\\bigcirc",
+					"name": "bigcirc",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigcirc"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\ddagger"
+					"display": "\\ddagger",
+					"name": "ddagger",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\ddagger"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\otimes"
+					"display": "\\otimes",
+					"name": "otimes",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\otimes"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\triangleright"
+					"display": "\\triangleright",
+					"name": "triangleright",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\triangleright"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigtriangledown"
+					"display": "\\bigtriangledown",
+					"name": "bigtriangldown",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigtriangldown"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\diamond"
+					"display": "\\diamond",
+					"name": "diamond",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\diamond"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\pm"
+					"display": "\\pm",
+					"name": "pm",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\pm"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\unlhd"
+					"display": "\\unlhd",
+					"name": "unlhd",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\unlhd"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigtriangleup"
+					"display": "\\bigtriangleup",
+					"name": "bigtriangleup",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigtriangleup"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\div"
+					"display": "\\div",
+					"name": "div",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\div"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\rhd"
+					"display": "\\rhd",
+					"name": "rhd",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\rhd"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\unrhd"
+					"display": "\\unrhd",
+					"name": "unrhd",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\unrhd"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bullet"
+					"display": "\\bullet",
+					"name": "bullet",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bullet"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\lhd"
+					"display": "\\lhd",
+					"name": "lhd",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\lhd"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\setminus"
+					"display": "\\setminus",
+					"name": "sentimus",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\sentimus"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\uplus"
+					"display": "\\uplus",
+					"name": "uplus",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\uplus"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\cap"
+					"display": "\\cap",
+					"name": "cap",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\cap"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\mp"
+					"display": "\\mp",
+					"name": "mp",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\mp"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\sqcap"
+					"display": "\\sqcap",
+					"name": "sqcap",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\sqcap"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\vee"
+					"display": "\\vee",
+					"name": "vee",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\vee"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\cdot"
+					"display": "\\cdot",
+					"name": "cdot",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\cdot"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\odot"
+					"display": "\\odot",
+					"name": "odot",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\odot"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\sqcup"
+					"display": "\\sqcup",
+					"name": "sqcup",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\sqcup"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\wedge"
+					"display": "\\wedge",
+					"name": "wedge",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\wedge"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\circ"
+					"display": "\\circ",
+					"name": "circ",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\circ"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\ominus"
+					"display": "\\ominus",
+					"name": "ominus",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\ominus"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\star"
+					"display": "\\star",
+					"name": "star",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\star"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\wr"
+					"display": "\\wr",
+					"name": "wr",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\wr"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				}
 			]
 		},
@@ -139,46 +681,200 @@
 			"name": "Variable Sized Math Operators",
 			"buttons": [
 				{
-					"code": "\\bigcap"
+					"display": "\\bigcap",
+					"name": "bigcap",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigcap"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigotimes"
+					"display": "\\bigotimes",
+					"name": "bigotimes",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigotimes"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigwedge"
+					"display": "\\bigwedge",
+					"name": "bigwedge",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigwedge"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\prod"
+					"display": "\\prod",
+					"name": "prod",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\prod"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigcup"
+					"display": "\\bigcup",
+					"name": "bigcup",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigcup"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigsqcup"
+					"display": "\\bigsqcup",
+					"name": "bigsqcup",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigsqcup"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\coprod"
+					"display": "\\coprod",
+					"name": "coprod",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\coprod"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\sum"
+					"display": "\\sum",
+					"name": "sum",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\sum"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigodot"
+					"display": "\\bigodot",
+					"name": "bigodot",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigodot"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\biguplus"
+					"display": "\\biguplus",
+					"name": "biguplus",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\biguplus"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\int"
+					"display": "\\int",
+					"name": "int",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\int"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigoplus"
+					"display": "\\bigoplus",
+					"name": "bigoplus",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigoplus"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\bigvee"
+					"display": "\\bigvee",
+					"name": "bigvee",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\bigvee"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				},
 				{
-					"code": "\\oint"
+					"display": "\\oint",
+					"name": "oint",
+					"equation": [
+						{
+							"type": "function",
+							"value": "\\oint"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				}
 			]
 		},
