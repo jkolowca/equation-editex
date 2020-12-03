@@ -13,10 +13,9 @@ export class EquationComponent {
   @Input() array: FormArray;
   @Input() group: FormArray;
   @Input() path: Array<string>;
+  text: string;
 
   constructor(private equationService: EquationService) { }
-
-  text: string;
 
   onFocus(path: Array<string>, position: number, text: string): void {
     this.text = text;

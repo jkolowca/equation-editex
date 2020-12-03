@@ -1,6 +1,4 @@
 <div class="container">
-	<app-equation [equation]="equationService.currentEquation | async"
-		[array]="(equationService.equationForm | async).controls.value" [group]="equationService.equationForm | async"
-		[path]="[]">
+	<app-equation [equation]="currentEquation" [array]="equationForm.controls.value" [group]="equationForm" [path]="[]">
 	</app-equation>
 </div>

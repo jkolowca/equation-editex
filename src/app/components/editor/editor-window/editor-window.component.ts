@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { EqComponent } from 'src/app/helpers/equation-components';
 import { EquationService } from 'src/app/services/equation.service';
 
 @Component({
@@ -7,5 +9,10 @@ import { EquationService } from 'src/app/services/equation.service';
   styleUrls: ['./editor-window.component.scss']
 })
 export class EditorWindowComponent {
-  constructor(public equationService: EquationService) { }
+  currentEquation: EqComponent[];
+  equationForm: FormGroup;
+  constructor(public equationService: EquationService) {
+    equationService.currentEquation.subscribe(e => this.currentEquation = e);
+    equationService.equationForm.subscribe(e => this.equationForm = e);
+  }
 }
