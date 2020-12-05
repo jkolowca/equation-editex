@@ -1,6 +1,7 @@
 export enum EqComponentTypes {
   Input = 'input',
   Function = 'function',
+  Operator = 'operator',
   Subscript = 'subscript',
   Superscript = 'superscript',
   SubAndSuperscript = 'subandsuperscript',
@@ -36,8 +37,8 @@ export class InputComponent extends StringValueComponent {
   readonly type = EqComponentTypes.Input;
 }
 
-export class FunctionComponent extends StringValueComponent {
-  readonly type = EqComponentTypes.Function;
+export class OperatorComponent extends StringValueComponent {
+  readonly type = EqComponentTypes.Operator;
 }
 
 class EquationValueComponent implements EqComponent {

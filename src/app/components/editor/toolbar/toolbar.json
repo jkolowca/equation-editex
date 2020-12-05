@@ -127,7 +127,7 @@
 					"name": "limit",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\lim\\limits"
 						},
 						{
@@ -138,7 +138,7 @@
 									"value": ""
 								},
 								{
-									"type": "function",
+									"type": "operator",
 									"value": "\\to"
 								},
 								{
@@ -234,7 +234,7 @@
 					"name": "amalg",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\amalg"
 						},
 						{
@@ -248,7 +248,7 @@
 					"name": "cup",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\cup"
 						},
 						{
@@ -262,7 +262,7 @@
 					"name": "oplus",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\oplus"
 						},
 						{
@@ -276,7 +276,7 @@
 					"name": "times",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\times"
 						},
 						{
@@ -290,7 +290,7 @@
 					"name": "dagger",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\dagger"
 						},
 						{
@@ -304,7 +304,7 @@
 					"name": "oslash",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\oslash"
 						},
 						{
@@ -318,7 +318,7 @@
 					"name": "triangleleft",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\triangleleft"
 						},
 						{
@@ -332,7 +332,7 @@
 					"name": "bigcirc",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigcirc"
 						},
 						{
@@ -346,7 +346,7 @@
 					"name": "ddagger",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\ddagger"
 						},
 						{
@@ -360,7 +360,7 @@
 					"name": "otimes",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\otimes"
 						},
 						{
@@ -374,7 +374,7 @@
 					"name": "triangleright",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\triangleright"
 						},
 						{
@@ -388,7 +388,7 @@
 					"name": "bigtriangldown",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigtriangldown"
 						},
 						{
@@ -402,7 +402,7 @@
 					"name": "diamond",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\diamond"
 						},
 						{
@@ -416,7 +416,7 @@
 					"name": "pm",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\pm"
 						},
 						{
@@ -430,7 +430,7 @@
 					"name": "unlhd",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\unlhd"
 						},
 						{
@@ -444,7 +444,7 @@
 					"name": "bigtriangleup",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigtriangleup"
 						},
 						{
@@ -458,7 +458,7 @@
 					"name": "div",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\div"
 						},
 						{
@@ -472,7 +472,7 @@
 					"name": "rhd",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\rhd"
 						},
 						{
@@ -486,7 +486,7 @@
 					"name": "unrhd",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\unrhd"
 						},
 						{
@@ -500,7 +500,7 @@
 					"name": "bullet",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bullet"
 						},
 						{
@@ -514,7 +514,7 @@
 					"name": "lhd",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\lhd"
 						},
 						{
@@ -528,7 +528,7 @@
 					"name": "sentimus",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\sentimus"
 						},
 						{
@@ -542,7 +542,7 @@
 					"name": "uplus",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\uplus"
 						},
 						{
@@ -556,7 +556,7 @@
 					"name": "cap",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\cap"
 						},
 						{
@@ -570,7 +570,7 @@
 					"name": "mp",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\mp"
 						},
 						{
@@ -584,7 +584,7 @@
 					"name": "sqcap",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\sqcap"
 						},
 						{
@@ -598,7 +598,7 @@
 					"name": "vee",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\vee"
 						},
 						{
@@ -612,7 +612,7 @@
 					"name": "cdot",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\cdot"
 						},
 						{
@@ -626,7 +626,7 @@
 					"name": "odot",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\odot"
 						},
 						{
@@ -640,7 +640,7 @@
 					"name": "sqcup",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\sqcup"
 						},
 						{
@@ -654,7 +654,7 @@
 					"name": "wedge",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\wedge"
 						},
 						{
@@ -668,7 +668,7 @@
 					"name": "circ",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\circ"
 						},
 						{
@@ -682,7 +682,7 @@
 					"name": "ominus",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\ominus"
 						},
 						{
@@ -696,7 +696,7 @@
 					"name": "star",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\star"
 						},
 						{
@@ -710,7 +710,7 @@
 					"name": "wr",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\wr"
 						},
 						{
@@ -729,7 +729,7 @@
 					"name": "bigcap",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigcap"
 						},
 						{
@@ -743,7 +743,7 @@
 					"name": "bigotimes",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigotimes"
 						},
 						{
@@ -757,7 +757,7 @@
 					"name": "bigwedge",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigwedge"
 						},
 						{
@@ -771,7 +771,7 @@
 					"name": "prod",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\prod"
 						},
 						{
@@ -785,7 +785,7 @@
 					"name": "bigcup",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigcup"
 						},
 						{
@@ -799,7 +799,7 @@
 					"name": "bigsqcup",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigsqcup"
 						},
 						{
@@ -813,7 +813,7 @@
 					"name": "coprod",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\coprod"
 						},
 						{
@@ -827,7 +827,7 @@
 					"name": "sum",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\sum"
 						},
 						{
@@ -841,7 +841,7 @@
 					"name": "bigodot",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigodot"
 						},
 						{
@@ -855,7 +855,7 @@
 					"name": "biguplus",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\biguplus"
 						},
 						{
@@ -869,7 +869,7 @@
 					"name": "int",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\int"
 						},
 						{
@@ -883,7 +883,7 @@
 					"name": "bigoplus",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigoplus"
 						},
 						{
@@ -897,7 +897,7 @@
 					"name": "bigvee",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\bigvee"
 						},
 						{
@@ -911,7 +911,7 @@
 					"name": "oint",
 					"equation": [
 						{
-							"type": "function",
+							"type": "operator",
 							"value": "\\oint"
 						},
 						{

@@ -70,7 +70,7 @@ export class EquationService {
   createForm(form: FormArray, equation: EqComponent[]): void {
     equation.forEach(component => {
       switch (component.type) {
-        case EqComponentTypes.Function:
+        case EqComponentTypes.Operator:
         case EqComponentTypes.Input: {
           form.push(this.fb.group(component));
           break;

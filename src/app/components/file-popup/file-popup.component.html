@@ -13,7 +13,7 @@
           {{f.file.name}}
           <span class="material-icons result correct" *ngIf="f.valid">check</span>
           <span class="material-icons result error" *ngIf="!f.valid">clear</span>
-          <span class="material-icons gray" (click)="fileService.onRemove(f)">delete_outline</span>
+          <span class="material-icons delete gray" (click)="fileService.onRemove(f)">delete_outline</span>
         </div>
         <div class="error-message" *ngIf="!f.valid">{{f.message}}</div>
       </ng-container>

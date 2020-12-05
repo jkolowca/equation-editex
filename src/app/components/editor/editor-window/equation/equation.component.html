@@ -5,8 +5,8 @@
 				<div class="input" formControlName='value' contenteditable (focus)="onFocus(path, i+1, $event.target.innerText)"
 					(keyup)="onKey($event.key, $event.target.innerText)"></div>
 			</div>
-			<div *ngSwitchCase="'function'" [formGroup]='component'>
-				<ng-katex *ngSwitchCase="'function'" [equation]="equation[i].value"></ng-katex>
+			<div *ngSwitchCase="'operator'" [formGroup]='component'>
+				<ng-katex *ngSwitchCase="'operator'" [equation]="equation[i].value"></ng-katex>
 			</div>
 			<div *ngSwitchCase="'superscript'" class="superscript">
 				<app-equation [array]="$any(component).controls.value" [group]="component" [equation]='equation[i].value'

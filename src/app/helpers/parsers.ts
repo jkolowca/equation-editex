@@ -1,7 +1,7 @@
 import {
   EqComponent,
   InputComponent,
-  FunctionComponent,
+  OperatorComponent,
   SubscriptComponent,
   SuperscriptComponent,
   SubAndSuperscriptComponent,
@@ -20,8 +20,8 @@ export function parseEquation(equation: any[]): EqComponent[] {
     switch (type) {
       case 'input':
         return new InputComponent(value);
-      case 'function':
-        return new FunctionComponent(value);
+      case 'operator':
+        return new OperatorComponent(value);
       case 'subscript':
         return new SubscriptComponent(parseEquation(value));
       case 'superscript':
@@ -92,26 +92,31 @@ export function parseTex(equation: string[] | string): EqComponent[] {
         }
         case /\\[a-zA-Z]*/.test(c): {
           if (a[i + 1] === '\\limits') { c += a[i + 1]; a.splice(i + 1, 1); }
-          newEquation.push(new FunctionComponent(c));
+          newEquation.push(new OperatorComponent(c));
           break;
         }
         case c === '^':
         case c === '_': {
-          const closing = [];
-          closing.push(findClosingBracketIdx(i + 1, a));
-          if (a[closing[0] + 1] === (c === '^' ? '_' : '^')) {
-            closing.push(findClosingBracketIdx(closing[0] + 2, a));
-            const value = [
-              parseTex(a.slice(i + 2, closing[0])),
-              parseTex(a.slice(closing[0] + 3, closing[1]))
-            ] as [EqComponent[], EqComponent[]];
-            newEquation.push(new SubAndSuperscriptComponent(value));
-            a.splice(i + 1, closing[1] - i);
-            break;
+          const value: EqComponent[][] = [];
+          if (a[i + 1] === '{') {
+            const parameterEnds = findClosingBracketIdx(i + 1, a);
+            value.push(parseTex(a.splice(i + 2, parameterEnds - i - 2)));
+            a.splice(i + 1, 2);
+          } else {
+            value.push(parseTex(a.splice(i + 1, 1)));
           }
-          if (c === '^') { newEquation.push(new SuperscriptComponent(parseTex(a.slice(i + 2, closing[0])))); }
-          else { newEquation.push(new SubscriptComponent(parseTex(a.slice(i + 2, closing[0])))); }
-          a.splice(i + 1, closing[0] - i);
+          if (a[i + 1] === (c === '^' ? '_' : '^')) {
+            if (a[i + 2] === '{') {
+              const parameterEnds = findClosingBracketIdx(i + 2, a);
+              value.push(parseTex(a.splice(i + 3, parameterEnds - i - 3)));
+              a.splice(i + 2, 2);
+            } else {
+              value.push(parseTex(a.splice(i + 2, 1)));
+            }
+            a.splice(i + 1, 1);
+            newEquation.push(new SubAndSuperscriptComponent(c === '^' ? value : value.reverse()));
+          }
+          else { newEquation.push(c === '^' ? new SuperscriptComponent(value[0]) : new SubscriptComponent(value[0])); }
           break;
         }
         default: {
