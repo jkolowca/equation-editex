@@ -34,7 +34,6 @@ export class DocumentBarComponent {
 
   addNewEquation(name: string, selector?: number): void {
     this.equationService.addEmptyDocument(name);
-    this.router.navigate(['/editor', selector]);
   }
 
   openPopup(): void {

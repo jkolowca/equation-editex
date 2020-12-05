@@ -79,6 +79,19 @@ class ComplexValueComponent implements EqComponent {
   }
 }
 
+export class FunctionComponent extends ComplexValueComponent {
+  readonly type = EqComponentTypes.Function;
+  functionCode: string;
+  constructor(code: string, value?: EqComponent[][]) {
+    super(value);
+    this.functionCode = code;
+  }
+
+  toString(): string {
+    return this.functionCode + this.value.map(v => '{' + toString(v) + '}').reduce((a, b) => a + b, '');
+  }
+}
+
 export class SubAndSuperscriptComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.SubAndSuperscript;
   code = ['^', '_', ''];

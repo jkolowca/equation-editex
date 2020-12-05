@@ -19,7 +19,6 @@ export class FileService {
       return { file: f, ...valid };
     }));
     this.files.push(...files);
-    console.log(this.files);
   }
 
   openEquations(): void {
@@ -39,7 +38,6 @@ export class FileService {
       try {
         res.content = parseTex(await file.text());
       } catch (e) {
-        console.log(e);
         res.valid = false;
         res.message = 'File should only contain valid mathematical expressions';
       }

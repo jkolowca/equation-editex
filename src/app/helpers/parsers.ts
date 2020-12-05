@@ -1,3 +1,4 @@
+import { zip } from 'rxjs';
 import {
   EqComponent,
   InputComponent,
@@ -8,7 +9,9 @@ import {
   FractionComponent,
   BinominalComponent,
   RootComponent,
-  MatrixComponent
+  MatrixComponent,
+  FunctionComponent,
+  EqComponentTypes
 } from './components';
 
 export function parseEquation(equation: any[]): EqComponent[] {
@@ -26,6 +29,8 @@ export function parseEquation(equation: any[]): EqComponent[] {
         return new SubscriptComponent(parseEquation(value));
       case 'superscript':
         return new SuperscriptComponent(parseEquation(value));
+      case 'function':
+        return new FunctionComponent(component.functionCode, value.map(v => parseEquation(v)));
       case 'subandsuperscript':
         return new SubAndSuperscriptComponent([parseEquation(value[0]), parseEquation(value[1])]);
       case 'fraction':
@@ -51,47 +56,60 @@ export function parseTex(equation: string[] | string): EqComponent[] {
         case c === '\\frac':
         case c === '\\binom':
         case c === '\\sqrt': {
-          const closing = [];
-          closing.push(findClosingBracketIdx(i + 1, a));
-          closing.push(findClosingBracketIdx(closing[0] + 1, a));
-          const value = [
-            parseTex(a.slice(i + 2, closing[0])),
-            parseTex(a.slice(closing[0] + 2, closing[1]))
-          ] as [EqComponent[], EqComponent[]];
+          const value: EqComponent[][] = [];
+
+          let parameterEnds = findClosingBracketIdx(i + 1, a);
+          value.push(parseTex(a.splice(i + 2, parameterEnds - i - 2)));
+          a.splice(i + 1, 2);
+
+          parameterEnds = findClosingBracketIdx(i + 1, a);
+          value.push(parseTex(a.splice(i + 2, parameterEnds - i - 2)));
+          a.splice(i + 1, 2);
+
           if (c === '\\frac') { newEquation.push(new FractionComponent(value)); }
           else if (c === '\\binom') { newEquation.push(new BinominalComponent(value)); }
           else if (c === '\\sqrt') { newEquation.push(new RootComponent(value)); }
-          a.splice(i + 1, closing[1] - i);
           break;
         }
         case c === '\\begin': {
-          const matrixType = a[i + 2];
-          a.splice(i + 1, 3);
-          console.log(a);
-          const matrixEnd = a.slice(i).findIndex(e => e === '\\end');
-          console.log(matrixEnd);
-          const separators = a.slice(i, matrixEnd)
+          const matrixType = a.splice(i + 1, 3)[1];
+          const matrixLength = a.slice(i + 1).findIndex(e => e === '\\end');
+          const matrix = a.slice(i + 1, matrixLength + i + 1);
+
+          a.splice(i + 1, matrixLength + 4);
+
+          const separators = matrix
             .map((e, idx) => ({ value: e, index: idx }))
             .filter(e => e.value === '&' || e.value === '\\\\');
-          console.log(separators);
+
           const size: [number, number] = [0, 0];
           size[1] = separators.findIndex(e => e.value === '\\\\') + 1;
           size[0] = (separators.length + 1) / size[1];
-          console.log(size);
+
           const values: EqComponent[][] = [];
-          let offset = 1;
+          let offset = 0;
+
           separators.forEach(e => {
-            console.log(i + offset, e.index);
-            values.push(parseTex(a.slice(i + offset, e.index)));
+            values.push(parseTex(matrix.slice(offset, e.index)));
             offset = e.index + 1;
           });
-          values.push(parseTex(a.slice(i + offset, matrixEnd)));
-          a.splice(i + 1, matrixEnd + 3);
+          values.push(parseTex(matrix.slice(offset, matrixLength)));
+
           newEquation.push(new MatrixComponent(matrixType, size, values));
           break;
         }
         case /\\[a-zA-Z]*/.test(c): {
           if (a[i + 1] === '\\limits') { c += a[i + 1]; a.splice(i + 1, 1); }
+          if (a[i + 1] === '{') {
+            const values: EqComponent[][] = [];
+            do {
+              const parameterEnds = findClosingBracketIdx(i + 1, a);
+              values.push(parseTex(a.splice(i + 2, parameterEnds - i - 2)));
+              a.splice(i + 1, 2);
+            } while (a[i + 1] === '{');
+            newEquation.push(new FunctionComponent(c, values));
+            break;
+          }
           newEquation.push(new OperatorComponent(c));
           break;
         }
@@ -103,6 +121,11 @@ export function parseTex(equation: string[] | string): EqComponent[] {
             value.push(parseTex(a.splice(i + 2, parameterEnds - i - 2)));
             a.splice(i + 1, 2);
           } else {
+            if (a[i + 1].length > 1) {
+              const newElem = a[i + 1].slice(1);
+              a[i + 1] = a[i + 1].slice(0, 1);
+              a.splice(i + 2, 0, newElem);
+            }
             value.push(parseTex(a.splice(i + 1, 1)));
           }
           if (a[i + 1] === (c === '^' ? '_' : '^')) {
