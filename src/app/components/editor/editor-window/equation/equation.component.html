@@ -50,6 +50,13 @@
 				<app-equation class="root-value" [array]='$any(component).controls.value.get([1])' [group]="component"
 					[equation]="equation[i].value[1]" [path]="path.concat(i, 'value', '1')"></app-equation>
 			</div>
+			<div *ngSwitchCase="'matrix'" class="matrix"
+				[style.grid-template-columns]="'auto '.repeat($any(equation[i]).size[1])">
+				<ng-container *ngFor="let v of $any(component).controls.value.controls; let vi = index">
+					<app-equation [array]='$any(component).controls.value.get([vi])' [group]="component"
+						[equation]="equation[i].value[vi]" [path]="path.concat(i, 'value', vi)"></app-equation>
+				</ng-container>
+			</div>
 		</ng-container>
 	</ng-container>
 </div>

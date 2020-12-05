@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormArray } from '@angular/forms';
-import { EqComponent } from 'src/app/helpers/equation-components';
+import { EqComponent } from 'src/app/helpers/components';
 import { EquationService } from 'src/app/services/equation.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { parseEquation } from 'src/app/helpers/equation-components';
+import { parseEquation } from 'src/app/helpers/parsers';
 import { EquationService } from 'src/app/services/equation.service';
 import ToolbarContent from './toolbar.json';
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { EqComponent, parseTex } from '../helpers/equation-components';
+import { EqComponent } from '../helpers/components';
+import { parseTex } from '../helpers/parsers';
 import { EquationService } from './equation.service';
 
 @Injectable({

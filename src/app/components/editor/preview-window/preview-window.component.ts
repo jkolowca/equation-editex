@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { EquationService } from 'src/app/services/equation.service';
-import { toString } from 'src/app/helpers/equation-components';
+import { toString } from 'src/app/helpers/components';
 
 @Component({
   selector: 'app-preview-window',

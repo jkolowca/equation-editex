@@ -1,6 +1,6 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { EqComponent } from 'src/app/helpers/equation-components';
+import { EqComponent } from 'src/app/helpers/components';
 import { EquationService } from 'src/app/services/equation.service';
 
 @Component({

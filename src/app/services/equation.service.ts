@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { EqComponentTypes, EqComponent, parseEquation, InputComponent } from '../helpers/equation-components';
+import { EqComponentTypes, EqComponent, InputComponent, MatrixComponent } from '../helpers/components';
+import { parseEquation } from '../helpers/parsers';
 
 export interface Document {
   name: string;
@@ -87,7 +88,18 @@ export class EquationService {
           form.push(this.fb.group({ value: this.fb.array([this.fb.array([]), this.fb.array([])]), type: component.type }));
           this.createForm(form.get([form.length - 1, 'value']).get([0]) as FormArray, component.value[0] as EqComponent[]);
           this.createForm(form.get([form.length - 1, 'value']).get([1]) as FormArray, component.value[1] as EqComponent[]);
+          break;
         }
+        case EqComponentTypes.Matrix:
+          const matrix = component as MatrixComponent;
+          form.push(this.fb.group({
+            value: this.fb.array(matrix.value.map(e => this.fb.array([]))),
+            type: matrix.type,
+            matrixType: matrix.matrixType,
+            size: this.fb.group({ 0: matrix.size[0], 1: matrix.size[1] })
+          }));
+          matrix.value.forEach((v, i) => this.createForm(form.get([form.length - 1, 'value']).get([i]) as FormArray, v));
+          break;
       }
     });
   }
@@ -150,6 +162,7 @@ export class EquationService {
   }
 
   updateEquationForm(): void {
+    console.log('form');
     this.subscription.unsubscribe();
     (this.form.controls.value as FormArray).clear();
     this.createForm(this.form.controls.value as FormArray, this.documents[this.currentDocumentIndex].equation);
@@ -157,11 +170,12 @@ export class EquationService {
     this.subscription = this.form.valueChanges.subscribe(form => this.onFormValueChange(form));
   }
 
-  setEquationValue(equation: any[]): void {
-    this.documents[this.currentDocumentIndex].equation = parseEquation(equation);
-    this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
-    this.storeData();
-  }
+  // setEquationValue(equation: any[]): void {
+  //   console.log('value');
+  //   this.documents[this.currentDocumentIndex].equation = parseEquation(equation);
+  //   this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
+  //   this.storeData();
+  // }
 
   changeDocumentNames(newNames: DocumentNames): void {
     newNames.forEach(document => this.documents.find(d => d.index === document.index).name = document.name);
@@ -169,6 +183,7 @@ export class EquationService {
   }
 
   onFormValueChange(form: any): void {
+    console.log('value');
     this.documents[this.currentDocumentIndex].equation = parseEquation(form.value);
     this._currentEquation.next(this.documents[this.currentDocumentIndex].equation);
     this.storeData();
