@@ -7,19 +7,3 @@
 ng-katex {
 	font-size: 14px;
 }
-
-.root {
-	display:flex;
-	align-items: center;
-	.root-degree {
-		margin-bottom: 10px;
-	}
-	.root-value {
-		border-top: 1px solid black;
-	}
-}
-
-.matrix {
-	display: grid;
-	column-gap: 5px;
-}
