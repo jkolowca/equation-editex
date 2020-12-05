@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { InputComponent } from 'src/app/helpers/components';
+import { InputEqComponent } from 'src/app/helpers/equation-components';
 import { parseEquation } from 'src/app/helpers/parsers';
 import { EquationService } from 'src/app/services/equation.service';
 

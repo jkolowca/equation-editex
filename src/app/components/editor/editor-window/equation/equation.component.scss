@@ -4,63 +4,8 @@
 	align-items: center;
 }
 
-.input {
-	border: 1px var(--primary-lighter-color) solid;
-	border-radius: 2px;
-	width: fit-content;
-	min-width: 10px;
-	font-size: 14px;
-	height: fit-content;
-}
-
-.input:focus {
-	outline: none;
-}
-
-.superscript {
-	display: grid;
-	grid-template-columns: (1, 1fr);
-	grid-auto-rows: min-content;
-}
-.subscript {
-	display: grid;
-	grid-template-columns: (1, 1fr);
-	grid-auto-rows: min-content;
-}
-
-.subandsuperscript {
-	display: grid;
-	grid-template-columns: (1, 1fr);
-	grid-auto-rows: min-content;
-}
-
-.fraction {
-	display: grid;
-	grid-template-columns: (1, 1fr);
-	grid-auto-rows: min-content;
-	grid-row-gap: 2px;
-}
-
-.binominal {
-	display: flex;
-	align-items: center;
-	ng-katex {
-		font-size: 24px;
-	}
-}
-
-.separator {
-	background: black;
-	height: 1px;
-}
-
-
 ng-katex {
 	font-size: 14px;
-}
-
-.spacer {
-	height: 10px;
 }
 
 .root {

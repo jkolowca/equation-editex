@@ -1,0 +1,10 @@
+<div class="binominal">
+  <ng-katex equation="(" [style.font-size]="height"></ng-katex>
+  <div class="data" #data>
+    <app-equation [array]='$any(group.controls).value.get([0])' [group]="group" [equation]="component.value[0]"
+      [path]="path.concat('value', '0')"></app-equation>
+    <app-equation [array]='$any(group.controls).value.get([1])' [group]="group" [equation]="component.value[1]"
+      [path]="path.concat('value', '1')"></app-equation>
+  </div>
+  <ng-katex equation=")" [style.font-size]="height"></ng-katex>
+</div>

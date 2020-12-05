@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { EqComponentTypes, EqComponent, InputComponent, MatrixComponent, FunctionComponent } from '../helpers/components';
+import { EqComponentTypes, EqComponent, InputEqComponent, MatrixEqComponent, FunctionEqComponent } from '../helpers/equation-components';
 import { parseEquation } from '../helpers/parsers';
 
 export interface Document {
@@ -91,7 +91,7 @@ export class EquationService {
           break;
         }
         case EqComponentTypes.Function: {
-          const funct = component as FunctionComponent;
+          const funct = component as FunctionEqComponent;
           form.push(this.fb.group({
             value: this.fb.array(funct.value.map(e => this.fb.array([]))),
             type: component.type,
@@ -101,7 +101,7 @@ export class EquationService {
           break;
         }
         case EqComponentTypes.Matrix:
-          const matrix = component as MatrixComponent;
+          const matrix = component as MatrixEqComponent;
           form.push(this.fb.group({
             value: this.fb.array(matrix.value.map(e => this.fb.array([]))),
             type: matrix.type,
@@ -140,7 +140,7 @@ export class EquationService {
   }
 
   addEmptyDocument(name: string): void {
-    const document = { name, index: this.documents.length, equation: [new InputComponent()] };
+    const document = { name, index: this.documents.length, equation: [new InputEqComponent()] };
     this.documents.push(document);
     this.openDocument(document.index);
     this.updateDocumentNames();

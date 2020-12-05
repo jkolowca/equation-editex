@@ -1,0 +1,10 @@
+<div class="root">
+  <app-equation class="root-degree" [array]='$any(group.controls).value.get([0])' [group]="group"
+    [equation]="component.value[0]" [path]="path.concat('value', '0')"></app-equation>
+  <ng-katex equation="\sqrt{}" [style.font-size]="height"></ng-katex>
+
+  <div class="root-value" #rootValue>
+    <app-equation class="root-value" [array]='$any(group.controls).value.get([1])' [group]="group"
+      [equation]="component.value[1]" [path]="path.concat('value', '1')"></app-equation>
+  </div>
+</div>

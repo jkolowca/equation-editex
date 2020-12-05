@@ -1,0 +1,10 @@
+<div class="matrix">
+  <ng-katex [equation]="parenthesis[0]" [style.font-size]="height"></ng-katex>
+  <div class="data" #data [style.grid-template-columns]="'auto '.repeat(matrix.size[1])">
+    <ng-container *ngFor="let v of $any(group.controls).value.controls; let i = index">
+      <app-equation [array]='v' [group]="group" [equation]="matrix.value[i]" [path]="path.concat('value', i)">
+      </app-equation>
+    </ng-container>
+  </div>
+  <ng-katex [equation]="parenthesis[1]" [style.font-size]="height"></ng-katex>
+</div>

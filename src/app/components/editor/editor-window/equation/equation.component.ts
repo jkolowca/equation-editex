@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormArray } from '@angular/forms';
-import { EqComponent } from 'src/app/helpers/components';
-import { EquationService } from 'src/app/services/equation.service';
+import { EqComponent } from 'src/app/helpers/equation-components';
 
 @Component({
   selector: 'app-equation',
@@ -13,19 +12,4 @@ export class EquationComponent {
   @Input() array: FormArray;
   @Input() group: FormArray;
   @Input() path: Array<string>;
-  text: string;
-
-  constructor(private equationService: EquationService) { }
-
-  onFocus(path: Array<string>, position: number, text: string): void {
-    this.text = text;
-    this.equationService.currentLocation = { path, position };
-  }
-
-  onKey(key: string, text: string): void {
-    if (key === 'Backspace') {
-      if (this.text !== text) { this.text = text; return; }
-      this.equationService.removeComponentFromEquation();
-    }
-  }
 }

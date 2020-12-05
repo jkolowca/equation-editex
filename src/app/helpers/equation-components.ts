@@ -33,11 +33,11 @@ class StringValueComponent implements EqComponent {
   }
 }
 
-export class InputComponent extends StringValueComponent {
+export class InputEqComponent extends StringValueComponent {
   readonly type = EqComponentTypes.Input;
 }
 
-export class OperatorComponent extends StringValueComponent {
+export class OperatorEqComponent extends StringValueComponent {
   readonly type = EqComponentTypes.Operator;
 }
 
@@ -47,7 +47,7 @@ class EquationValueComponent implements EqComponent {
   code: string;
 
   constructor(value?: EqComponent[]) {
-    this.value = value ? value : [new InputComponent()];
+    this.value = value ? value : [new InputEqComponent()];
   }
 
   toString(): string {
@@ -55,12 +55,12 @@ class EquationValueComponent implements EqComponent {
   }
 }
 
-export class SubscriptComponent extends EquationValueComponent {
+export class SubscriptEqComponent extends EquationValueComponent {
   readonly type = EqComponentTypes.Subscript;
   code = '_';
 }
 
-export class SuperscriptComponent extends EquationValueComponent {
+export class SuperscriptEqComponent extends EquationValueComponent {
   readonly type = EqComponentTypes.Superscript;
   code = '^';
 }
@@ -71,7 +71,7 @@ class ComplexValueComponent implements EqComponent {
   code: string[];
 
   constructor(value?: EqComponent[][]) {
-    this.value = value ? value : [[new InputComponent()], [new InputComponent()]];
+    this.value = value ? value : [[new InputEqComponent()], [new InputEqComponent()]];
   }
 
   toString(): string {
@@ -79,7 +79,7 @@ class ComplexValueComponent implements EqComponent {
   }
 }
 
-export class FunctionComponent extends ComplexValueComponent {
+export class FunctionEqComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Function;
   functionCode: string;
   constructor(code: string, value?: EqComponent[][]) {
@@ -92,22 +92,22 @@ export class FunctionComponent extends ComplexValueComponent {
   }
 }
 
-export class SubAndSuperscriptComponent extends ComplexValueComponent {
+export class SubAndSuperscriptEqComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.SubAndSuperscript;
   code = ['^', '_', ''];
 }
 
-export class FractionComponent extends ComplexValueComponent {
+export class FractionEqComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Fraction;
   code = ['\\frac', '', ''];
 }
 
-export class BinominalComponent extends ComplexValueComponent {
+export class BinominalEqComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Binominal;
   code = ['\\binom', '', ''];
 }
 
-export class RootComponent extends ComplexValueComponent {
+export class RootEqComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Root;
   code = ['\\sqrt', '', ''];
 
@@ -116,10 +116,11 @@ export class RootComponent extends ComplexValueComponent {
   }
 }
 
-export class MatrixComponent extends ComplexValueComponent {
+export class MatrixEqComponent extends ComplexValueComponent {
   readonly type = EqComponentTypes.Matrix;
   size: [number, number];
   matrixType: string;
+
   constructor(matrixType: string, size: [number, number], value?: EqComponent[][]) {
     super(value);
     this.size = size;
@@ -128,11 +129,12 @@ export class MatrixComponent extends ComplexValueComponent {
       const newValue = [];
       for (let i = 0; i < size[0]; i++) {
         value[i] = [];
-        for (let j = 0; j < size[1]; j++) { newValue[i][j] = new InputComponent(); }
+        for (let j = 0; j < size[1]; j++) { newValue[i][j] = new InputEqComponent(); }
       }
       this.value = newValue;
     }
   }
+
   toString(): string {
     const values = this.value.map((v, i, a) => {
       if (i + 1 === a.length) {

@@ -1,0 +1,19 @@
+.input {
+	border: 1px var(--primary-lighter-color) solid;
+	border-radius: 2px;
+	width: fit-content;
+	min-width: 10px;
+	font-size: 14px;
+	height: fit-content;
+	transition: opacity 0.2s ease-in-out;
+	transition: min-width 0.2s ease-in-out;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:empty:not(:focus) {
+		min-width: 3px;
+		opacity: 50%;
+	}
+}
