@@ -112,6 +112,19 @@ export class EquationService {
     this.currentLocation = { path: [], position: this.documents[index].equation.length };
   }
 
+  closeDocument(index: number): void {
+    if (this.documents.length === 1) {
+      this.documents = [];
+      this.addEmptyDocument('UNNAMED');
+    }
+    else {
+      this.documents.splice(index, 1);
+      this.openDocument(0);
+      this.updateDocumentNames();
+      this.storeData();
+    }
+  }
+
   updateDocumentNames(): void {
     this._documentNames.next(this.documents.map(d => ({ index: d.index, name: d.name })));
   }

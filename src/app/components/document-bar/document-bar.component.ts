@@ -40,4 +40,8 @@ export class DocumentBarComponent {
   openPopup(): void {
     this.popup.openPopup();
   }
+
+  close(index: number): void {
+    this.equationService.closeDocument(index);
+  }
 }

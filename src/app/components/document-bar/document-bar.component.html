@@ -4,6 +4,7 @@
 			<div class="label" (click)="openEquation(i, $event)" [formGroup]="form" matRipple>
 				<div class="input" formControlName="name" [class.active]="equationService.currentDocumentIndex === i"
 					spellcheck="false" (dblclick)="editText($event)" [routerLink]="['/editor', i]" contenteditable></div>
+				<mat-icon (click)="close(i)">close</mat-icon>
 			</div>
 		</ng-container>
 		<div class="label right" (click)="addNewEquation('New equation')" matRipple>
