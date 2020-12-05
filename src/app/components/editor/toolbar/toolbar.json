@@ -186,41 +186,57 @@
 					"equation": [
 						{
 							"type": "matrix",
-							"matrixType": "matrix",
-							"size": [
-								2,
-								2
-							],
-							"value": [
-								[
-									{
-										"type": "input",
-										"value": ""
-									}
-								],
-								[
-									{
-										"type": "input",
-										"value": ""
-									}
-								],
-								[
-									{
-										"type": "input",
-										"value": ""
-									}
-								],
-								[
-									{
-										"type": "input",
-										"value": ""
-									}
-								]
-							]
-						},
+							"matrixType": "matrix"
+						}
+					]
+				},
+				{
+					"display": "\\begin{pmatrix} x & y \\\\ y & x  \\end{pmatrix}",
+					"name": "pmatrix",
+					"equation": [
 						{
-							"type": "input",
-							"value": ""
+							"type": "matrix",
+							"matrixType": "pmatrix"
+						}
+					]
+				},
+				{
+					"display": "\\begin{bmatrix} x & y \\\\ y & x  \\end{bmatrix}",
+					"name": "bmatrix",
+					"equation": [
+						{
+							"type": "matrix",
+							"matrixType": "bmatrix"
+						}
+					]
+				},
+				{
+					"display": "\\begin{Bmatrix} x & y \\\\ y & x  \\end{Bmatrix}",
+					"name": "Bmatrix",
+					"equation": [
+						{
+							"type": "matrix",
+							"matrixType": "Bmatrix"
+						}
+					]
+				},
+				{
+					"display": "\\begin{vmatrix} x & y \\\\ y & x  \\end{vmatrix}",
+					"name": "vmatrix",
+					"equation": [
+						{
+							"type": "matrix",
+							"matrixType": "vmatrix"
+						}
+					]
+				},
+				{
+					"display": "\\begin{Vmatrix} x & y \\\\ y & x  \\end{Vmatrix}",
+					"name": "Vmatrix",
+					"equation": [
+						{
+							"type": "matrix",
+							"matrixType": "Vmatrix"
 						}
 					]
 				}

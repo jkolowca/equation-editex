@@ -1,0 +1,17 @@
+<div class="backdrop">
+  <div class="container" [formGroup]="form">
+    <h1>Choose matrix size</h1>
+    <mat-form-field class="example-form-field">
+      <mat-label>Columns</mat-label>
+      <input formControlName="columns" matInput type="number">
+    </mat-form-field>
+    <mat-form-field class="example-form-field">
+      <mat-label>Rows</mat-label>
+      <input formControlName="rows" matInput type="number">
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button (click)="onApply()" [disabled]="!form.valid">Apply</button>
+    </div>
+  </div>
+</div>

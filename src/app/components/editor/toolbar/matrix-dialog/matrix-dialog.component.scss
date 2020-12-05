@@ -1,0 +1,34 @@
+.container {
+  z-index: 5;
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  background: white;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 40px;
+}
+
+.backdrop {
+  z-index: 4;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.486);
+  top: 0px;
+  left: 0px;
+}
+
+.mat-form-field {
+  margin: 10px 20px;
+}
+
+.button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+
+}

@@ -21,6 +21,7 @@ import { EquationService } from './services/equation.service';
 import { FilePopupComponent } from './components/file-popup/file-popup.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatrixDialogComponent } from './components/editor/toolbar/matrix-dialog/matrix-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     SearchBoxComponent,
     EquationComponent,
     DocumentBarComponent,
-    FilePopupComponent
+    FilePopupComponent,
+    MatrixDialogComponent
   ],
   imports: [
     ClipboardModule,
