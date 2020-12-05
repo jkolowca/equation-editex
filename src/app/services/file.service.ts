@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { EqComponent } from '../helpers/components';
 import { parseTex } from '../helpers/parsers';
 import { EquationService } from './equation.service';
+import { saveAs } from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +53,10 @@ export class FileService {
 
   onRemove(event): void {
     this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  saveToFile(content: string, fileName: string): void {
+    const blob = new Blob([content], { type: 'type/plain;charset=utf=8' });
+    saveAs(blob, fileName + '.tex');
   }
 }

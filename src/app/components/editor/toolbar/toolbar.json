@@ -179,6 +179,50 @@
 							"value": ""
 						}
 					]
+				},
+				{
+					"display": "\\begin{matrix} x & y \\\\ y & x  \\end{matrix}",
+					"name": "matrix",
+					"equation": [
+						{
+							"type": "matrix",
+							"matrixType": "matrix",
+							"size": [
+								2,
+								2
+							],
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								],
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				}
 			]
 		},

@@ -1,3 +1,11 @@
 <div class="container">
 	<p>{{equation}}</p>
+	<div class="buttons">
+		<button mat-icon-button aria-label="Copy to clipboard" [cdkCopyToClipboard]="equation">
+			<mat-icon>content_copy</mat-icon>
+		</button>
+		<button mat-icon-button aria-label="Copy to clipboard" (click)="toFile()">
+			<mat-icon>get_app</mat-icon>
+		</button>
+	</div>
 </div>
