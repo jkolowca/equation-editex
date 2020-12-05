@@ -5,6 +5,7 @@
 	min-width: 10px;
 	font-size: 14px;
 	height: fit-content;
+	opacity: 1;
 	transition: opacity 0.2s ease-in-out;
 	transition: min-width 0.2s ease-in-out;
 
@@ -14,6 +15,6 @@
 
 	&:empty:not(:focus) {
 		min-width: 3px;
-		opacity: 50%;
+		opacity: 0.5;
 	}
 }
