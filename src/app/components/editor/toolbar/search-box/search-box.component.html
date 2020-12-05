@@ -1,4 +1,4 @@
-<div class="container">
-	<div class="input" [spellcheck]="false" contenteditable></div>
+<div class="container" [formGroup]="form">
+	<input class="input" [spellcheck]="false" formControlName="filter" />
 	<mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
 </div>

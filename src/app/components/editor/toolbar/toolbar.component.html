@@ -1,12 +1,20 @@
 <div class="container">
-	<app-search-box></app-search-box>
+	<app-search-box (filterChanged)="onFilterChanged($event)"></app-search-box>
 	<mat-tab-group>
 		<mat-tab *ngFor="let tab of toolbar.tabs" [label]="tab.name">
 			<div class="button-container">
-				<div class="button" *ngFor="let button of tab.buttons" matRipple matRippleColor="rgba(217, 42, 42, 0.13)"
-					(click)="onClick(button.equation)">
-					<ng-katex [equation]="button.display"></ng-katex>
-				</div>
+				<ng-container *ngIf="filter">
+					<div class="button" *ngFor="let button of filtered" matRipple matRippleColor="rgba(217, 42, 42, 0.13)"
+						(click)="onClick(button.equation)">
+						<ng-katex [equation]="button.display"></ng-katex>
+					</div>
+				</ng-container>
+				<ng-container *ngIf="!filter">
+					<div class="button" *ngFor="let button of tab.buttons" matRipple matRippleColor="rgba(217, 42, 42, 0.13)"
+						(click)="onClick(button.equation)">
+						<ng-katex [equation]="button.display"></ng-katex>
+					</div>
+				</ng-container>
 			</div>
 		</mat-tab>
 	</mat-tab-group>

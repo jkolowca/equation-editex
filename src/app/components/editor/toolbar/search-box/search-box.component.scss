@@ -11,4 +11,11 @@
 .input {
 	flex-grow: 1;
 	pointer-events: all;
+	outline: none;
+	border: none;
+	width: 100%;
+}
+
+mat-icon {
+	cursor: default;
 }
