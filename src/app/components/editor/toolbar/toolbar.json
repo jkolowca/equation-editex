@@ -239,6 +239,150 @@
 							"matrixType": "Vmatrix"
 						}
 					]
+				},
+				{
+					"display": "\\overline{x}",
+					"name": "overline",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\overline",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\underline{x}",
+					"name": "underline",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\underline",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\widehat{x}",
+					"name": "widehat",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\widehat",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\widetilde{x}",
+					"name": "widetilde",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\widetilde",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\overrightarrow{x}",
+					"name": "overrightarrow",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\overrightarrow",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\overleftarrow{x}",
+					"name": "overleftarrow",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\overleftarrow",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\overbrace{x}",
+					"name": "overbrace",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\overbrace",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"display": "\\underbrace{x}",
+					"name": "underbrace",
+					"equation": [
+						{
+							"type": "function",
+							"functionCode": "\\underbrace",
+							"value": [
+								[
+									{
+										"type": "input",
+										"value": ""
+									}
+								]
+							]
+						}
+					]
 				}
 			]
 		},
