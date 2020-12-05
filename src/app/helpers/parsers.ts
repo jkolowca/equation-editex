@@ -1,4 +1,5 @@
 import { zip } from 'rxjs';
+import { OperatorComponent } from '../components/editor/editor-window/equation/operator/operator.component';
 import {
   EqComponent,
   InputEqComponent,
@@ -49,7 +50,9 @@ export function parseEquation(equation: any[]): EqComponent[] {
 
 export function parseTex(equation: string[] | string): EqComponent[] {
   const newEquation: EqComponent[] = [];
-  if (!Array.isArray(equation)) { equation = equation.match(/(\\[a-zA-Z]+|[[\]{}^_&]|[0-9\.=+\-a-zA-Z()!|]+(\s[0-9\.=+\-a-zA-Z()!|])*|\\\\)/gm); }
+  if (!Array.isArray(equation)) {
+    equation = equation.match(/(\\[a-zA-Z*]+|[[\]{}^_&()=]|[0-9\.+\-a-zA-Z!|]+(\s[0-9\.+\-a-zA-Z!|])*|\\\\)/g);
+  }
   if (equation) {
     equation.forEach((c, i, a) => {
       switch (true) {
@@ -140,6 +143,10 @@ export function parseTex(equation: string[] | string): EqComponent[] {
             newEquation.push(new SubAndSuperscriptEqComponent(c === '^' ? value : value.reverse()));
           }
           else { newEquation.push(c === '^' ? new SuperscriptEqComponent(value[0]) : new SubscriptEqComponent(value[0])); }
+          break;
+        }
+        case /([[\]{}^_&()=])/g.test(c): {
+          newEquation.push(new OperatorEqComponent(c));
           break;
         }
         default: {
