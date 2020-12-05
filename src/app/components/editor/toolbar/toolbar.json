@@ -939,7 +939,653 @@
 			]
 		},
 		{
-			"name": "Binary Relations"
+			"name": "Greek and Hebrew letters",
+			"buttons": [
+				{
+					"display": "\\alpha",
+					"name": "alpha",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\alpha"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\kappa",
+					"name": "kappa",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\kappa"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\psi",
+					"name": "psi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\psi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\digamma",
+					"name": "digamma",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\digamma"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Delta",
+					"name": "Delta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Delta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Theta",
+					"name": "Theta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Theta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\beta",
+					"name": "beta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\beta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\lambda",
+					"name": "lambda",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\lambda"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rho",
+					"name": "rho",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rho"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\varepsilon",
+					"name": "varepsilon",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\varepsilon"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Gamma",
+					"name": "Gamma",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Gamma"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Upsilon",
+					"name": "Upsilon",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Upsilon"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\chi",
+					"name": "chi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\chi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\mu",
+					"name": "mu",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\mu"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sigma",
+					"name": "sigma",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sigma"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\varkappa",
+					"name": "varkappa",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\varkappa"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Lambda",
+					"name": "Lambda",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Lambda"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Xi",
+					"name": "Xi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Xi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\delta",
+					"name": "delta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\delta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\nu",
+					"name": "nu",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\nu"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\tau",
+					"name": "tau",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\tau"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\varphi",
+					"name": "varphi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\varphi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Omega",
+					"name": "Omega",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Omega"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\epsilon",
+					"name": "epsilon",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\epsilon"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\theta",
+					"name": "theta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\theta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\varpi",
+					"name": "varpi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\varpi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Phi",
+					"name": "Phi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Phi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\aleph",
+					"name": "aleph",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\aleph"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\eta",
+					"name": "eta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\eta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\omega",
+					"name": "omega",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\omega"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\upsilon",
+					"name": "upsilon",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\upsilon"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\varrho",
+					"name": "varrho",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\varrho"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Pi",
+					"name": "Pi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Pi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\beth",
+					"name": "beth",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\beth"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\gamma",
+					"name": "gamma",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\gamma"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\phi",
+					"name": "phi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\phi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\xi",
+					"name": "xi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\xi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\varsigma",
+					"name": "varsigma",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\varsigma"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Psi",
+					"name": "Psi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Psi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\daleth",
+					"name": "daleth",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\daleth"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\iota",
+					"name": "iota",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\iota"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\pi",
+					"name": "pi",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\pi"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\zeta",
+					"name": "zeta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\zeta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\vartheta",
+					"name": "vartheta",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\vartheta"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Sigma",
+					"name": "Sigma",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Sigma"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\gimel",
+					"name": "gimel",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\gimel"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "Subset and Superset Relations"

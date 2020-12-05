@@ -28,10 +28,10 @@ export class MatrixComponent implements AfterViewInit, OnChanges {
         this.parenthesis = ['\\{', '\\}'];
         break;
       case 'vmatrix':
-        this.parenthesis = ['|', '|'];
+        this.parenthesis = ['\\vert', '\\vert'];
         break;
       case 'Vmatrix':
-        this.parenthesis = ['||', '||'];
+        this.parenthesis = ['\\Vert', '\\Vert'];
         break;
       default:
         this.parenthesis = ['', ''];

@@ -21,6 +21,8 @@ mat-tab-group {
 	border-radius: 4px;
 	border: 1px solid rgb(119 119 119 / 10%);
 	padding: 7px 10px;
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 	user-select: none;
 }
@@ -35,5 +37,5 @@ app-search-box {
 }
 
 ng-katex {
-	font-size: 10px;
+	font-size: 14px;
 }
