@@ -383,6 +383,48 @@
 							]
 						}
 					]
+				},
+				{
+					"display": "\\forall",
+					"name": "forall",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\forall"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\exists",
+					"name": "exists",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\exists"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\in",
+					"name": "in",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\in"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
 				}
 			]
 		},
@@ -1732,43 +1774,598 @@
 			]
 		},
 		{
-			"name": "Subset and Superset Relations"
+			"name": "Subset and superset relations",
+			"buttons": [
+				{
+					"display": "\\subset",
+					"name": "subset",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\subset"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\subseteq",
+					"name": "subseteq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\subseteq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\nsubseteq",
+					"name": "nsubseteq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\nsubseteq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sqsubset",
+					"name": "sqsubset",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sqsubset"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sqsubseteq",
+					"name": "sqsubseteq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sqsubseteq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\supset",
+					"name": "supset",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\supset"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\supseteq",
+					"name": "supseteq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\supseteq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\nsupseteq",
+					"name": "nsupseteq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\nsupseteq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sqsupset",
+					"name": "sqsupset",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sqsupset"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sqsupseteq",
+					"name": "sqsupseteq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sqsupseteq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				}
+			]
 		},
 		{
-			"name": "Inequalities"
+			"name": "Inequalities",
+			"buttons": [
+				{
+					"display": "\\leq",
+					"name": "leq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\leq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\leqslant",
+					"name": "leqslant",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\leqslant"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\prec",
+					"name": "prec",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\prec"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\preceq",
+					"name": "preceq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\preceq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\geq",
+					"name": "geq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\geq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\geqslant",
+					"name": "geqslant",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\geqslant"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\succ",
+					"name": "succ",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\succ"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\succeq",
+					"name": "succeq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\succeq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\approx",
+					"name": "approx",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\approx"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sim",
+					"name": "sim",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sim"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\neq",
+					"name": "neq",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\neq"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				}
+			]
 		},
 		{
-			"name": "Arrows"
+			"name": "Delimiters",
+			"buttons": [
+				{
+					"display": "\\lbrace",
+					"name": "lbrace",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\lbrace"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rbrace",
+					"name": "rbrace",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rbrace"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\lbrack",
+					"name": "lbrack",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\lbrack"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rbrack",
+					"name": "rbrack",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rbrack"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\langle",
+					"name": "langle",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\langle"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rangle",
+					"name": "rangle",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rangle"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\lceil",
+					"name": "lceil",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\lceil"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rceil",
+					"name": "rceil",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rceil"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\lfloor",
+					"name": "lfloor",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\lfloor"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rfloor",
+					"name": "rfloor",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rfloor"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				}
+			]
 		},
 		{
-			"name": "Harpoons"
-		},
-		{
-			"name": "Extension Characters"
-		},
-		{
-			"name": "Log-like Symbols"
-		},
-		{
-			"name": "Greek Letters"
-		},
-		{
-			"name": "Letter-like Symbols"
-		},
-		{
-			"name": "Delimiters"
-		},
-		{
-			"name": "Accents"
-		},
-		{
-			"name": "Dots"
-		},
-		{
-			"name": "Alphabets"
-		},
-		{
-			"name": "Other"
+			"name": "Arrows",
+			"buttons": [
+				{
+					"display": "\\Longrightarrow",
+					"name": "Longrightarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Longrightarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Rightarrow",
+					"name": "Rightarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Rightarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Longleftarrow",
+					"name": "Longleftarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Longleftarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Leftarrow",
+					"name": "Leftarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Leftarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\iff",
+					"name": "iff",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\iff"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\Leftrightarrow",
+					"name": "Leftrightarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\Leftrightarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\rightarrow",
+					"name": "rightarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\rightarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\leftarrow",
+					"name": "leftarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\leftarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\longrightarrow",
+					"name": "longrightarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\longrightarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\longleftarrow",
+					"name": "longleftarrow",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\longleftarrow"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				}
+			]
 		}
 	]
 }
