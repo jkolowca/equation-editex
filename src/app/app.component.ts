@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EquationService } from './services/equation.service';
+import { EquationService } from './shared/services/equation.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { EquationService } from './services/equation.service';
 	      Equation Edi<ng-katex equation="\\TeX"></ng-katex>
       </div>
     </mat-toolbar>
-    <app-document-bar></app-document-bar>
+    <app-menu></app-menu>
     <div class="content-block">
       <router-outlet></router-outlet>
     </div>
@@ -38,7 +38,7 @@ import { EquationService } from './services/equation.service';
   `]
 })
 export class AppComponent {
-  constructor(private equationService: EquationService) {
-    this.equationService.initialize();
+  constructor(equationService: EquationService) {
+    equationService.initialize();
   }
 }
