@@ -13,7 +13,6 @@ import { SubscriptComponent } from './components/subscript/subscript.component';
 import { SuperscriptComponent } from './components/superscript/superscript.component';
 import { SharedModule } from '../shared/shared.module';
 import { KatexModule } from 'ng-katex';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContenteditableValueAccessorModule } from '@tinkoff/angular-contenteditable-accessor';
 
 const exports = [

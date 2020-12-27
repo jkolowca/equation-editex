@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormArray, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { FunctionEqComponent } from 'src/app/shared/helpers/equation-components';
 
 @Component({
