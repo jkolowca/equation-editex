@@ -485,6 +485,95 @@
 			]
 		},
 		{
+			"name": "Trigonometric functions",
+			"buttons": [
+				{
+					"display": "\\sin{x}",
+					"name": "sine",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sin"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\cos{x}",
+					"name": "cosine",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\cos"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\tan{x}",
+					"name": "tangent",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\tan"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\cot{x}",
+					"name": "cotangent",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\cot"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\sec{x}",
+					"name": "secant",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\sec"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				},
+				{
+					"display": "\\csc{x}",
+					"name": "cosecant",
+					"equation": [
+						{
+							"type": "operator",
+							"value": "\\csc"
+						},
+						{
+							"type": "input",
+							"value": ""
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Binary Operators",
 			"buttons": [
 				{

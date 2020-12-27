@@ -1,5 +1,5 @@
 <div class="function">
-  <ng-katex [equation]="function.functionCode + '{.....}'"></ng-katex>
+  <ng-katex [equation]="function.functionCode + '{}'"></ng-katex>
   <ng-container *ngFor="let v of $any(group.controls).value.controls; let i = index">
     <app-equation [array]='$any(group.controls).value.get([i])' [group]="group" [equation]="function.value[i]"
       [path]="path.concat('value', i)"></app-equation>

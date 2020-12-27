@@ -1,6 +1,6 @@
 <div class="container">
 	<app-search-box (filterChanged)="onFilterChanged($event)"></app-search-box>
-	<mat-tab-group>
+	<mat-tab-group (selectedTabChange)="onFilterChanged('')">
 		<mat-tab *ngFor="let tab of toolbar.tabs" [label]="tab.name">
 			<div class="button-container">
 				<ng-container *ngIf="filter">
